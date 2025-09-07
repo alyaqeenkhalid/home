@@ -2585,132 +2585,226 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu functionality
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileNavClose = document.getElementById('mobileNavClose');
+<script>
+    // Mobile menu functionality
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavClose = document.getElementById('mobileNavClose');
+    
+    if (mobileMenuToggle && mobileNav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
         
-        if (mobileMenuToggle && mobileNav) {
-            mobileMenuToggle.addEventListener('click', function() {
-                mobileNav.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            mobileNavClose.addEventListener('click', function() {
+        mobileNavClose.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close mobile nav when clicking on links
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
                 mobileNav.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
+        });
+    }
+    
+    // Toggle user dropdown
+    function toggleUserDropdown() {
+        const dropdown = document.getElementById('userDropdown');
+        dropdown.classList.toggle('show');
+    }
+    
+    // Close dropdown when clicking outside
+    window.addEventListener('click', function(e) {
+        const dropdown = document.getElementById('userDropdown');
+        const userIcon = document.querySelector('.user-icon');
+        
+        if (dropdown.classList.contains('show') && e.target !== userIcon && !userIcon.contains(e.target)) {
+            dropdown.classList.remove('show');
+        }
+    });
+    
+    // Add click event to user icon
+    if (document.querySelector('.user-icon')) {
+        document.querySelector('.user-icon').addEventListener('click', toggleUserDropdown);
+    }
+    
+    // Initialize carousel
+    function initCarousel() {
+        const carouselTrack = document.querySelector('.carousel-track');
+        if (!carouselTrack) return;
+        
+        // If carousel is already populated with images in HTML, use those
+        const existingSlides = document.querySelectorAll('.carousel-slide');
+        if (existingSlides.length > 0) {
+            // Carousel already has images from HTML, use them
+            const slides = existingSlides;
+            const totalSlides = slides.length;
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
+            const progressBar = document.querySelector('.slider-progress-bar');
+            const sliderNumbers = document.querySelector('.slider-numbers');
             
-            // Close mobile nav when clicking on links
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileNav.classList.remove('active');
-                    document.body.style.overflow = 'auto';
+            let currentSlide = 0;
+            
+            function updateSlider() {
+                carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+                if (progressBar) {
+                    progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+                }
+                if (sliderNumbers) {
+                    sliderNumbers.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+                }
+            }
+            
+            if (prevButton && nextButton) {
+                prevButton.addEventListener('click', () => {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateSlider();
                 });
-            });
-        }
-        
-        // Touch-friendly carousel for mobile
-        function initTouchCarousel() {
-            const carouselTrack = document.querySelector('.carousel-track');
-            if (!carouselTrack) return;
-            
-            let startX = 0;
-            let currentX = 0;
-            let isDragging = false;
-            
-            carouselTrack.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                isDragging = true;
-            });
-            
-            carouselTrack.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                currentX = e.touches[0].clientX;
-                const diff = startX - currentX;
                 
-                // Prevent vertical scrolling when horizontally swiping
-                if (Math.abs(diff) > 10) {
-                    e.preventDefault();
-                }
+                nextButton.addEventListener('click', () => {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateSlider();
+                });
+            }
+            
+            // Auto-advance slides
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }, 5000);
+            
+            // Initialize slider
+            updateSlider();
+        } else {
+            // If no images in HTML, create them from JavaScript array
+            const imagePaths = [
+                'images/Pictuer 1.png',
+                'images/Pictuer 10.png', 
+                'images/Pictuer 13.png',
+            ];
+            
+            // Clear any existing content
+            carouselTrack.innerHTML = '';
+            
+            // Add slides to carousel
+            imagePaths.forEach((path, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                
+                const img = document.createElement('img');
+                img.src = path;
+                img.alt = `Luxury Property ${index + 1}`;
+                
+                slide.appendChild(img);
+                carouselTrack.appendChild(slide);
             });
             
-            carouselTrack.addEventListener('touchend', (e) => {
-                if (!isDragging) return;
-                
-                const diff = startX - currentX;
-                if (Math.abs(diff) > 50) { // Minimum swipe distance
-                    if (diff > 0) {
-                        // Swipe left - next slide
-                        simulateClick(document.querySelector('.carousel-next'));
-                    } else {
-                        // Swipe right - previous slide
-                        simulateClick(document.querySelector('.carousel-prev'));
-                    }
-                }
-                
-                isDragging = false;
-            });
+            // Set up carousel navigation
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const totalSlides = slides.length;
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
+            const progressBar = document.querySelector('.slider-progress-bar');
+            const sliderNumbers = document.querySelector('.slider-numbers');
             
-            function simulateClick(element) {
-                if (element) {
-                    const event = new MouseEvent('click', {
-                        view: window,
-                        bubbles: true,
-                        cancelable: true
-                    });
-                    element.dispatchEvent(event);
+            function updateSlider() {
+                carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+                if (progressBar) {
+                    progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+                }
+                if (sliderNumbers) {
+                    sliderNumbers.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
                 }
             }
-        }
-        
-        // Initialize touch carousel on mobile
-        if ('ontouchstart' in window) {
-            document.addEventListener('DOMContentLoaded', initTouchCarousel);
-        }
-        
-        // Prevent zoom on double-tap (improves touch experience)
-        document.addEventListener('touchstart', function(event) {
-            if (event.touches.length > 1) {
-                event.preventDefault();
-            }
-        }, { passive: false });
-        
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-        
-        // Adjust AI chat interface for mobile
-        function adjustAIChatForMobile() {
-            const aiChat = document.getElementById('aiChatInterface');
-            if (!aiChat) return;
             
-            if (window.innerWidth <= 768) {
-                aiChat.style.width = 'calc(100vw - 40px)';
-                aiChat.style.height = '70vh';
-                aiChat.style.right = '20px';
-                aiChat.style.bottom = '80px';
-            } else {
-                aiChat.style.width = '350px';
-                aiChat.style.height = '500px';
-                aiChat.style.right = '30px';
-                aiChat.style.bottom = '30px';
+            if (prevButton && nextButton) {
+                prevButton.addEventListener('click', () => {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateSlider();
+                });
+                
+                nextButton.addEventListener('click', () => {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateSlider();
+                });
+            }
+            
+            // Auto-advance slides
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }, 5000);
+            
+            // Initialize slider
+            updateSlider();
+        }
+    }
+    
+    // Touch-friendly carousel for mobile
+    function initTouchCarousel() {
+        const carouselTrack = document.querySelector('.carousel-track');
+        if (!carouselTrack) return;
+        
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+        
+        carouselTrack.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+        
+        carouselTrack.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+            const diff = startX - currentX;
+            
+            // Prevent vertical scrolling when horizontally swiping
+            if (Math.abs(diff) > 10) {
+                e.preventDefault();
+            }
+        });
+        
+        carouselTrack.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            
+            const diff = startX - currentX;
+            if (Math.abs(diff) > 50) { // Minimum swipe distance
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    simulateClick(document.querySelector('.carousel-next'));
+                } else {
+                    // Swipe right - previous slide
+                    simulateClick(document.querySelector('.carousel-prev'));
+                }
+            }
+            
+            isDragging = false;
+        });
+        
+        function simulateClick(element) {
+            if (element) {
+                const event = new MouseEvent('click', {
+                    view: window,
+                    bubbles: true,
+                    cancelable: true
+                });
+                element.dispatchEvent(event);
             }
         }
-        
-        window.addEventListener('resize', adjustAIChatForMobile);
-        document.addEventListener('DOMContentLoaded', adjustAIChatForMobile);
-        
-        // Your existing JavaScript code continues here
-        // Form submission handler
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    }
+    
+    // Form submission handler
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
@@ -2732,149 +2826,33 @@
             // Reset form
             this.reset();
         });
-        
-        // Toggle user dropdown
-        function toggleUserDropdown() {
-            const dropdown = document.getElementById('userDropdown');
-            dropdown.classList.toggle('show');
-        }
-        
-        // Close dropdown when clicking outside
-        window.addEventListener('click', function(e) {
-            const dropdown = document.getElementById('userDropdown');
-            const userIcon = document.querySelector('.user-icon');
-            
-            if (dropdown.classList.contains('show') && e.target !== userIcon && !userIcon.contains(e.target)) {
-                dropdown.classList.remove('show');
-            }
-        });
-        
-        // AI Assistant functionality
-        function toggleAIChat() {
-            const chatInterface = document.getElementById('aiChatInterface');
-            chatInterface.classList.toggle('active');
-        }
-        
-        function handleEnterKey(event) {
-            if (event.key === 'Enter' && !event.shiftKey) {
-                event.preventDefault();
-                sendMessage();
-            }
-        }
-        
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            
-            if (message === '') return;
-            
-            // Add user message
-            addMessage(message, 'user');
-            input.value = '';
-            
-            // Simulate AI response
-            setTimeout(() => {
-                addMessage("I'm a demo AI assistant. In a real implementation, I would connect to a real AI service to provide property recommendations and answer your questions.", 'bot');
-            }, 1000);
-        }
-        
-        function addMessage(message, sender) {
-            const messagesContainer = document.getElementById('chatMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `ai-message ${sender}`;
-            
-            const avatar = document.createElement('div');
-            avatar.className = 'ai-message-avatar';
-            avatar.textContent = sender === 'bot' ? '🤖' : '👤';
-            
-            const content = document.createElement('div');
-            content.className = 'ai-message-content';
-            content.textContent = message;
-            
-            messageDiv.appendChild(avatar);
-            messageDiv.appendChild(content);
-            messagesContainer.appendChild(messageDiv);
-            
-            // Scroll to bottom
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-        
-        // Initialize carousel with placeholder images
-        function initCarousel() {
-            const carouselTrack = document.querySelector('.carousel-track');
-            if (!carouselTrack) return;
-            // Your image paths
-    const imagePaths = [
-        'images/Pictuer 1.png',
-        'images/Pictuer 10.png',
-        'images/Pictuer 13.png',
-    ];
+    }
     
-    // Clear any existing content
-    carouselTrack.innerHTML = '';
-    
-    // Add slides to carousel
-    imagePaths.forEach((path, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'carousel-slide';
+    // Initialize everything when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        initCarousel();
         
-        const img = document.createElement('img');
-        img.src = path;
-        img.alt = `Luxury Property ${index + 1}`;
-        
-        slide.appendChild(img);
-        carouselTrack.appendChild(slide);
+        // Initialize touch carousel on mobile
+        if ('ontouchstart' in window) {
+            initTouchCarousel();
+        }
     });
-            // Add slides to carousel
-            for (let i = 1; i <= 3; i++) {
-                const slide = document.createElement('div');
-                slide.className = 'carousel-slide';
-                
-                const img = document.createElement('img');
-                img.src = `https://via.placeholder.com/800x500/8B6F47/FFFFFF?text=Property+${i}`;
-                img.alt = `Luxury Property ${i}`;
-                
-                slide.appendChild(img);
-                carouselTrack.appendChild(slide);
-            }
-            
-            // Set up carousel navigation
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.carousel-slide');
-            const totalSlides = slides.length;
-            const prevButton = document.querySelector('.carousel-prev');
-            const nextButton = document.querySelector('.carousel-next');
-            const progressBar = document.querySelector('.slider-progress-bar');
-            const sliderNumbers = document.querySelector('.slider-numbers');
-            
-            function updateSlider() {
-                carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-                progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
-                sliderNumbers.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
-            }
-            
-            prevButton.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                updateSlider();
-            });
-            
-            nextButton.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                updateSlider();
-            });
-            
-            // Auto-advance slides
-            setInterval(() => {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                updateSlider();
-            }, 5000);
-            
-            // Initialize slider
-            updateSlider();
+    
+    // Prevent zoom on double-tap (improves touch experience)
+    document.addEventListener('touchstart', function(event) {
+        if (event.touches.length > 1) {
+            event.preventDefault();
         }
-        
-        // Initialize the carousel when the page loads
-        document.addEventListener('DOMContentLoaded', initCarousel);
-    </script>
+    }, { passive: false });
+    
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+</script>
 </body>
 </html>
