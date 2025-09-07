@@ -8,671 +8,550 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-       /* General */
-body {
-  font-family: "Inter", sans-serif;
-  color: #3A3A3A;
-  margin: 0;
-  background: #F5F3F0;
-}
+        /* General */
+        body {
+            font-family: "Inter", sans-serif;
+            color: #3A3A3A;
+            margin: 0;
+            background: #F5F3F0;
+        }
 
-h2, h3 {
-  margin: 0 0 1rem;
-  font-weight: 600;
-}
+        h2, h3 {
+            margin: 0 0 1rem;
+            font-weight: 600;
+        }
 
+        /* Header Styles - Updated with brown palette */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5% 2%;
+            height: 60px;
+            border-bottom: 1px solid #8B6F47;
+            flex-wrap: nowrap;
+            position: relative;
+            background: #FFFFFF;
+            box-shadow: 0 2px 10px rgba(139, 111, 71, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .back-arrow {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+        }
+
+        .back-arrow-img {
+            width: 100%;
+            height: auto;
+        }
+
+        .back-arrow:hover {
+            opacity: 0.8;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .logo-main {
+            font-weight: 700;
+            font-size: 28px;
+            color: #3A3A3A;
+            margin-bottom: 3px;
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-weight: 400;
+            font-size: 14px;
+            color: #8B8680;
+            line-height: 1;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 0 20px;
+            flex-wrap: nowrap;
+            overflow: hidden;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #8B8680;
+            font-weight: 400;
+            font-size: 12px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .nav-menu a:hover {
+            transform: scale(1.1);
+            color: #8B6F47;
+        }
+
+        .nav-menu a:first-child {
+            color: #8B6F47;
+            text-decoration: underline;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .user-account {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .user-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #8B6F47;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .user-icon:hover {
+            border-color: #3A3A3A;
+            transform: scale(1.05);
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #8B6F47;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            min-width: 180px;
+            z-index: 1000;
+            display: none;
+            margin-top: 8px;
+        }
+
+        .user-dropdown.show {
+            display: block;
+            animation: dropdownSlide 0.3s ease-out;
+        }
+
+        @keyframes dropdownSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-item {
+            padding: 12px 16px;
+            color: #3A3A3A;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background-color: #F5F3F0;
+            color: #8B6F47;
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background-color: #E0E0E0;
+            margin: 4px 0;
+        }
+
+        .explore-btn {
+            background: #8B6F47;
+            border: 1px solid #8B6F47;
+            border-radius: 9px;
+            padding: 10px 25px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: transform 0.25s ease, background 0.25s ease;
+            text-decoration: none !important;
+        }
+
+        .explore-btn:hover {
+            transform: scale(1.08);
+            background: #7A5F3F;
+        }
+
+        .language-selector,
+        .currency-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-left: 0.1rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .language-selector select,
+        .currency-selector select {
+            padding: 6px 2px 6px 10px;
+            border: 1px solid #8B6F47;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3A3A3A;
+            background: transparent;
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .language-selector select:hover,
+        .currency-selector select:hover {
+            transform: scale(1.08);
+            border-color: #8B8680;
+        }
+
+        .language-selector {
+            min-width: 20px;
+        }
+
+        .currency-selector {
+            min-width: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 10px;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 20px;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 0; /* Prevents flex item overflow */
+            z-index: 1;
+        }
+
+        .hero-content h2 {
+            font-size: 46px;
+            font-weight: 700;
+            color: #3A3A3A; /* Updated color */
+            margin-bottom: 30px;
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 15px;
+            margin-bottom: 40px;
+            color: #8B8680; /* Updated color */
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 338px;
+        }
+
+        .btn.btn-solid {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #8B6F47; /* Updated color */
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn.btn-solid:hover {
+            background-color: #6B5435; /* Darker brown on hover */
+        }
+
+        /* Hero Image Carousel */
+        .hero-image {
+            flex: 1;
+            position: relative;
+            min-width: 0;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+            height: 426px;
+            background: #D9D9D9; /* Fallback color */
+        }
+
+        .image-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            touch-action: pan-y;
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scaleX(-1); /* Mirror effect */
+            display: block;
+        }
+
+        /* Navigation Buttons */
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3A3A3A; /* Updated color */
+        }
+
+        .carousel-prev {
+            left: 20px;
+        }
+
+        .carousel-next {
+            right: 20px;
+        }
+
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Slider Controls */
+        .hero-slider-controls {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 30px;
+            z-index: 10;
+        }
+
+        .slider-progress {
+            width: 120px;
+            height: 7px;
+            background-color: rgba(152, 152, 152, 0.3);
+            position: relative;
+            border-radius: 3.5px;
+        }
+
+        .slider-progress-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 33.33%;
+            height: 100%;
+            background-color: #8B6F47; /* Updated color */
+            border-radius: 3.5px;
+            transition: width 0.3s ease;
+        }
+
+        .slider-numbers {
+            font-weight: 300;
+            font-size: 16px;
+            color: #3A3A3A; /* Updated color */
+            min-width: 60px;
+            text-align: center;
+        }
+
+        /* For all buttons */
+        .main-btn,
+        .carousel-prev, 
+        .carousel-next,
+        .btn,
+        .btn-solid,
+        .btn-outline {
+            text-decoration: none !important;
+        }
+
+        /* If using <a> tags for buttons */
+        a.main-btn,
+        a.btn {
+            text-decoration: none !important;
+        }
         
-   /* Header Styles - Updated with brown palette */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5% 2%;
-    height: 60px;
-    border-bottom: 1px solid #8B6F47;
-    flex-wrap: nowrap;
-    position: relative;
-    background: #FFFFFF;
-    box-shadow: 0 2px 10px rgba(139, 111, 71, 0.1);
-}
+        .image-carousel {
+            position: relative;
+            width: 100%;
+            height: 426px;
+            border-radius: 50px;
+            overflow: hidden; /* Ensures no content spills out */
+        }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-shrink: 0;
-}
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
 
-.back-arrow {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-}
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden; /* Added this */
+        }
 
-.back-arrow-img {
-  width: 100%;
-  height: auto;
-}
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scaleX(-1);
+            display: block;
+            position: absolute; /* Added this */
+            top: 0;
+            left: 0;
+        }
 
-.back-arrow:hover {
-  opacity: 0.8;
-}
+        .main-btn {
+            /* Auto layout */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 47px;
+            
+            /* Dimensions */
+            width: 338px;
+            height: 66px;
+            
+            /* Style */
+            background: #8B6F47; /* Updated color */
+            border-radius: 9px;
+            border: none;
+            
+            /* Text */
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            text-transform: uppercase;
+            
+            /* Effects */
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.logo {
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-}
-
-.logo-main {
-  font-weight: 700;
-  font-size: 28px;
-  color: #3A3A3A;
-  margin-bottom: 3px;
-  line-height: 1;
-}
-
-.logo-sub {
-  font-weight: 400;
-  font-size: 14px;
-  color: #8B8680;
-  line-height: 1;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin: 0 20px;
-  flex-wrap: nowrap;
-  overflow: hidden;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #8B8680;
-  font-weight: 400;
-  font-size: 12px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: transform 0.25s ease, color 0.25s ease;
-}
-
-.nav-menu a:hover {
-  transform: scale(1.1);
-  color: #8B6F47;
-}
-
-.nav-menu a:first-child {
-    color: #8B6F47;
-    text-decoration: underline;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-shrink: 0;
-    position: relative;
-}
-
-.user-account {
-  margin-left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.user-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #8B6F47;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.user-icon:hover {
-  border-color: #3A3A3A;
-  transform: scale(1.05);
-}
-
-.user-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: white;
-    border: 1px solid #8B6F47;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    min-width: 180px;
-    z-index: 1000;
-    display: none;
-    margin-top: 8px;
-}
-
-.user-dropdown.show {
-    display: block;
-    animation: dropdownSlide 0.3s ease-out;
-}
-
-@keyframes dropdownSlide {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.dropdown-item {
-    padding: 12px 16px;
-    color: #3A3A3A;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    transition: background-color 0.2s;
-    cursor: pointer;
-}
-
-.dropdown-item:hover {
-    background-color: #F5F3F0;
-    color: #8B6F47;
-}
-
-.dropdown-divider {
-    height: 1px;
-    background-color: #E0E0E0;
-    margin: 4px 0;
-}
-
-.explore-btn {
-  background: #8B6F47;
-  border: 1px solid #8B6F47;
-  border-radius: 9px;
-  padding: 10px 25px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: transform 0.25s ease, background 0.25s ease;
-  text-decoration: none !important;
-}
-
-.explore-btn:hover {
-  transform: scale(1.08);
-  background: #7A5F3F;
-}
-
-.language-selector,
-.currency-selector {
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin-left: 0.1rem;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-.language-selector select,
-.currency-selector select {
-   padding: 6px 2px 6px 10px;
-  border: 1px solid #8B6F47;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #3A3A3A;
-  background: transparent;
-  cursor: pointer;
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.language-selector select:hover,
-.currency-selector select:hover {
-  transform: scale(1.08);
-  border-color: #8B8680;
-}
-
-.language-selector {
-    min-width: 20px;
-}
-
-.currency-selector {
-    min-width: 20px;
-}
-
+        .main-btn:hover {
+            background: #6B5435; /* Darker brown on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
         
-       /* Hero Section */
-.hero {
-    margin-top: 10px;
-    padding: 100px 0;
-    position: relative;
-    overflow: hidden;
-    
-}
+        /* Carousel Navigation Buttons */
+        .image-carousel .carousel-prev,
+        .image-carousel .carousel-next {
+            /* Complete reset */
+            all: unset;
+            
+            /* Carousel-specific styles */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 20px;
+            color: #3A3A3A; /* Updated color */
+            transition: all 0.3s ease;
+        }
 
-.hero-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 0 20px;
-    gap: 50px;
-}
+        .image-carousel .carousel-prev { left: 20px; }
+        .image-carousel .carousel-next { right: 20px; }
 
-.hero-content {
-    flex: 1;
-    min-width: 0; /* Prevents flex item overflow */
-    z-index: 1;
-}
+        .image-carousel .carousel-prev:hover,
+        .image-carousel .carousel-next:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
 
-.hero-content h2 {
-    font-size: 46px;
-    font-weight: 700;
-    color: #3A3A3A; /* Updated color */
-    margin-bottom: 30px;
-    line-height: 1.3;
-    text-transform: uppercase;
-}
-
-.hero-content p {
-    font-size: 15px;
-    margin-bottom: 40px;
-    color: #8B8680; /* Updated color */
-    max-width: 500px;
-    line-height: 1.6;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 338px;
-}
-
-.btn.btn-solid {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #8B6F47; /* Updated color */
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 500;
-    text-align: center;
-    transition: background-color 0.3s;
-}
-
-.btn.btn-solid:hover {
-    background-color: #6B5435; /* Darker brown on hover */
-}
-
-/* Hero Image Carousel */
-.hero-image {
-    flex: 1;
-    position: relative;
-    min-width: 0;
-    border-radius: 50px;
-    overflow: hidden;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
-    height: 426px;
-    background: #D9D9D9; /* Fallback color */
-}
-
-.image-carousel {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    touch-action: pan-y;
-}
-
-.carousel-track {
-    display: flex;
-    height: 100%;
-    transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-    will-change: transform;
-}
-
-.carousel-slide {
-    min-width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    position: relative;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scaleX(-1); /* Mirror effect */
-    display: block;
-}
-
-/* Navigation Buttons */
-.carousel-prev,
-.carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3A3A3A; /* Updated color */
-}
-
-.carousel-prev {
-    left: 20px;
-}
-
-.carousel-next {
-    right: 20px;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: translateY(-50%) scale(1.1);
-}
-
-/* Slider Controls */
-.hero-slider-controls {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 8px 15px;
-    border-radius: 30px;
-    z-index: 10;
-}
-
-.slider-progress {
-    width: 120px;
-    height: 7px;
-    background-color: rgba(152, 152, 152, 0.3);
-    position: relative;
-    border-radius: 3.5px;
-}
-
-.slider-progress-bar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 33.33%;
-    height: 100%;
-    background-color: #8B6F47; /* Updated color */
-    border-radius: 3.5px;
-    transition: width 0.3s ease;
-}
-
-.slider-numbers {
-    font-weight: 300;
-    font-size: 16px;
-    color: #3A3A3A; /* Updated color */
-    min-width: 60px;
-    text-align: center;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
-    .hero-content h2 {
-        font-size: 40px;
-    }
-    
-    .hero-image {
-        height: 380px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .hero-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 40px;
-        text-align: center;
-    }
-    
-    .hero-buttons {
-        margin: 0 auto;
-    }
-    
-    .hero-image {
-        height: 350px;
-        width: 100%;
-        margin-top: 30px;
-    }
-    
-    .carousel-slide img {
-        width: 120%;
-        margin-left: -10%;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding: 70px 0;
-    }
-    
-    .hero-content h2 {
-        font-size: 32px;
-        margin-bottom: 20px;
-    }
-    
-    .hero-content p {
-        font-size: 14px;
-        margin-bottom: 30px;
-    }
-    
-    .hero-image {
-        height: 300px;
-        border-radius: 30px;
-    }
-    
-    .carousel-slide img {
-        width: 140%;
-        margin-left: -20%;
-    }
-    
-    .carousel-prev,
-    .carousel-next {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-    }
-    
-    .hero-slider-controls {
-        padding: 6px 12px;
-        right: 15px;
-        bottom: 15px;
-    }
-    
-    .slider-progress {
-        width: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h2 {
-        font-size: 28px;
-    }
-    
-    .hero-image {
-        height: 250px;
-        border-radius: 20px;
-    }
-    
-    .btn.btn-solid {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
-/* Carousel Navigation Buttons (ADD THIS NEW RULE) */
-.image-carousel .carousel-prev,
-.image-carousel .carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.8);
-    border: none !important; /* Force override any inherited borders */
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3A3A3A; /* Updated color */
-    /* Explicitly reset properties that might inherit */
-    padding: 0 !important;
-    margin: 0 !important;
-    text-transform: none !important;
-    font-weight: normal !important;
-}
-.main-btn {
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 47px;
-    
-    /* Dimensions */
-    width: 338px;
-    height: 66px;
-    
-    /* Style */
-    background: #8B6F47; /* Updated color */
-    border-radius: 9px;
-    border: none;
-    
-    /* Text */
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: white;
-    text-transform: uppercase;
-    
-    /* Effects */
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.main-btn:hover {
-    background: #6B5435; /* Darker brown on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-.image-carousel .carousel-prev,
-.image-carousel .carousel-next {
-    /* Complete reset */
-    all: unset;
-    
-    /* Carousel-specific styles */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 20px;
-    color: #3A3A3A; /* Updated color */
-    transition: all 0.3s ease;
-}
-
-.image-carousel .carousel-prev { left: 20px; }
-.image-carousel .carousel-next { right: 20px; }
-
-.image-carousel .carousel-prev:hover,
-.image-carousel .carousel-next:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-}
-/* For all buttons */
-.main-btn,
-.carousel-prev, 
-.carousel-next,
-.btn,
-.btn-solid,
-.btn-outline {
-    text-decoration: none !important;
-}
-
-/* If using <a> tags for buttons */
-a.main-btn,
-a.btn {
-    text-decoration: none !important;
-}
-.image-carousel {
-    position: relative;
-    width: 100%;
-    height: 426px;
-    border-radius: 50px;
-    overflow: hidden; /* Ensures no content spills out */
-}
-
-.carousel-track {
-    display: flex;
-    height: 100%;
-    transition: transform 0.5s ease;
-    will-change: transform;
-}
-
-.carousel-slide {
-    min-width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden; /* Added this */
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scaleX(-1);
-    display: block;
-    position: absolute; /* Added this */
-    top: 0;
-    left: 0;
-}
-
-       /* Featured Properties Section */
+        /* Featured Properties Section */
         .featured {
             padding: 100px 0;
             position: relative;
@@ -750,119 +629,119 @@ a.btn {
             width: 100%;
             height: 100%;
             object-fit:center;
-            
         }
         
-/* Stats Section */
-.stats {
-  background-color: #8B6F47; /* Updated color */
-  padding: 120px 0;
-  color: white;
-}
-.stats-text h3 {
-  font-size: 36px; /* Increased from 32px */
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 20px; /* Adjusted spacing */
-  line-height: 1.2;
-}
+        /* Stats Section */
+        .stats {
+            background-color: #8B6F47; /* Updated color */
+            padding: 120px 0;
+            color: white;
+        }
+        
+        .stats-text h3 {
+            font-size: 36px; /* Increased from 32px */
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px; /* Adjusted spacing */
+            line-height: 1.2;
+        }
 
-.stats-text p {
-  font-size: 20px; /* Increased from 18px */
-  line-height: 1.6;
-  opacity: 0.9;
-  max-width: 500px;
-}
+        .stats-text p {
+            font-size: 20px; /* Increased from 18px */
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 500px;
+        }
 
-.stats-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  gap: 60px;
-}
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 60px;
+        }
 
-/* Left Column */
-.stats-left {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+        /* Left Column */
+        .stats-left {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
 
-.stats-text {
-  margin-bottom: 40px;
-}
+        .stats-text {
+            margin-bottom: 40px;
+        }
 
-.stats-image-container {
-  flex: 1; /* Takes all remaining space */
-  position: relative;
-  min-height: 400px; /* Minimum height */
-  margin-top: auto; /* Pushes to bottom */
-}
+        .stats-image-container {
+            flex: 1; /* Takes all remaining space */
+            position: relative;
+            min-height: 400px; /* Minimum height */
+            margin-top: auto; /* Pushes to bottom */
+        }
 
-.stats-main-image {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 80%; /* Adjust height as needed */
-  border-radius: 0 50px 50px 0;
-  overflow: hidden;
-}
+        .stats-main-image {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 80%; /* Adjust height as needed */
+            border-radius: 0 50px 50px 0;
+            overflow: hidden;
+        }
 
-.stats-main-image img {
-  width: 100%;
+        .stats-main-image img {
+            width: 100%;
             height: 100%;
             object-fit: right-center;
             display: block;
-}
+        }
 
-.stats-decorative {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 10px;
-  right: 10px;
-  transform: rotate(15deg);
-  z-index: 2;
-}
+        .stats-decorative {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 10px;
+            right: 10px;
+            transform: rotate(15deg);
+            z-index: 2;
+        }
 
-/* Right Column */
-.stats-list {
-  flex: 1;
-  padding-top: 80px;
-}
+        /* Right Column */
+        .stats-list {
+            flex: 1;
+            padding-top: 80px;
+        }
 
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 25px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-.stat-number {
-  font-size: 60px;
-  font-weight: 300;
-  
-  line-height: 1;
-  min-width: 60px;
-}
+        .stat-number {
+            font-size: 60px;
+            font-weight: 300;
+            line-height: 1;
+            min-width: 60px;
+        }
 
-.stat-info h4 {
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-}
+        .stat-info h4 {
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
 
-.stat-info p {
-  font-size: 16px;
-  color: rgba(255,255,255,0.7); /* Lighter text */
-  font-weight: 300;
-}  
+        .stat-info p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7); /* Lighter text */
+            font-weight: 300;
+        }  
+        
         /* Why Choose Us Section */
         .why-us {
             padding: 150px 0;
@@ -876,30 +755,31 @@ a.btn {
         }
         
         .section-header {
-    display: flex;
-    align-items: flex-start; /* Align children to start (left) */
-    margin-bottom: 80px;
-}
+            display: flex;
+            align-items: flex-start; /* Align children to start (left) */
+            margin-bottom: 80px;
+        }
 
-.section-header h4 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #8B8680; /* Updated color */
-    text-transform: uppercase;
-    margin-right: 50px;
-    /* Keep original left alignment */
-}
+        .section-header h4 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #8B8680; /* Updated color */
+            text-transform: uppercase;
+            margin-right: 50px;
+            /* Keep original left alignment */
+        }
 
-.section-header h2 {
-    font-size: 60px;
-    font-weight: 700;
-    color: #3A3A3A; /* Updated color */
-    text-transform: uppercase;
-    line-height: 1.2;
-    margin-left: 100px; /* Push right by adding left margin */
-    flex: 1;
-    text-align: left; /* Ensure text aligns left within its shifted container */
-}
+        .section-header h2 {
+            font-size: 60px;
+            font-weight: 700;
+            color: #3A3A3A; /* Updated color */
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-left: 100px; /* Push right by adding left margin */
+            flex: 1;
+            text-align: left; /* Ensure text aligns left within its shifted container */
+        }
+        
         .why-us-content p {
             font-size: 29px;
             color: #3A3A3A; /* Updated color */
@@ -914,27 +794,27 @@ a.btn {
             margin-bottom: 80px;
         }
         
-       .feature-item {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    margin-bottom: 20px; /* Added spacing between items */
-}
+        .feature-item {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 20px; /* Added spacing between items */
+        }
 
-.feature-icon {
-    width: auto; /* Let icon determine width */
-    height: auto; /* Let icon determine height */
-    background: transparent; /* Remove background */
-    display: inline-block; /* Change from flex */
-}
+        .feature-icon {
+            width: auto; /* Let icon determine width */
+            height: auto; /* Let icon determine height */
+            background: transparent; /* Remove background */
+            display: inline-block; /* Change from flex */
+        }
 
-.feature-icon img {
-    width: 60px; /* Set your desired small size */
-    height: 60px;
-    display: block; /* Remove inline spacing */
-    margin: 0 auto; /* Center horizontally */
-    object-fit: contain;
-}
+        .feature-icon img {
+            width: 60px; /* Set your desired small size */
+            height: 60px;
+            display: block; /* Remove inline spacing */
+            margin: 0 auto; /* Center horizontally */
+            object-fit: contain;
+        }
         
         .feature-text h3 {
             font-size: 20px;
@@ -1012,7 +892,7 @@ a.btn {
             transform: scale(1.1);
         }
         
-  /* Contact Form Container */
+        /* Contact Form Container */
         .contact-container-wrapper {
             display: flex;
             max-width: 1400px;
@@ -1160,60 +1040,7 @@ a.btn {
             color: #8B6F47;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .contact-container-wrapper {
-                flex-direction: column;
-                margin: 20px;
-            }
-            
-            .contact-form-section {
-                padding: 40px;
-            }
-            
-            .contact-image-section {
-                min-height: 300px;
-                order: -1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .contact-form {
-                grid-template-columns: 1fr;
-            }
-            
-            .checkbox-group {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .contact-form-section {
-                padding: 30px 20px;
-            }
-            
-            .contact h2 {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .contact-form-section {
-                padding: 20px 15px;
-            }
-            
-            .contact-image-section {
-                min-height: 250px;
-            }
-            
-            .image-placeholder i {
-                font-size: 48px;
-            }
-            
-            .image-placeholder p {
-                font-size: 16px;
-            }
-        }
-/* AI Assistant Floating Button */
+        /* AI Assistant Floating Button */
         .ai-assistant {
             position: fixed;
             bottom: 30px;
@@ -1305,6 +1132,7 @@ a.btn {
             margin: 0;
             font-size: 18px;
             font-weight: 600;
+            text-transform: uppercase;
         }
 
         .ai-chat-close {
@@ -1446,411 +1274,944 @@ a.btn {
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0.3; }
         }
+        
+        /* Footer Styles - Updated with new palette */
+        .footer-container {
+            background: linear-gradient(135deg, #3A3A3A 0%, #2A2A2A 100%);
+            color: #F5F3F0;
+            padding: 40px 10% 30px;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+        }
 
-        /* Responsive Design */
+        .footer-decoration {
+            position: absolute;
+            z-index: 0; /* stays behind text */
+            background-size: contain; /* make them fill more */
+            background-repeat: no-repeat;
+            opacity: 0.5; /* stronger visibility */
+            pointer-events: none;
+        }
+
+        .decoration-1 {
+            width: 532px;
+            height: 516px;
+            left: -220px;
+            top: 200.93px;
+            background-image: url('images/v127_615.png');
+            /* background: radial-gradient(circle, #8B8680 0%, transparent 60%); */
+            transform: rotate(15deg);
+        }
+
+        .decoration-2 {
+            width: 574px;
+            height: 517px;
+            right: -150px;
+            top: -290.2px;
+            background-image: url('images/v127_615.png');
+            /* background: radial-gradient(circle, #8B8680 0%, transparent 60%); */
+            transform: rotate(-15deg);
+        }
+
+        .decoration-3 {
+            width: 574px;
+            height: 517px;
+            left: -150px;
+            top: 170.2px;
+            background-image: url('images/v127_616.png');
+            /* background: radial-gradient(circle, #8B8680 0%, transparent 60%); */
+            transform: rotate(10deg);
+        }
+
+        .decoration-4 {
+            width: 574px;
+            height: 517px;
+            right: -150px;
+            top: -290.2px;
+            background-image: url('images/v127_616.png');
+            /* background: radial-gradient(circle, #8B8680 0%, transparent 60%); */
+            transform: rotate(-10deg);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between; /* keeps logo left and links right */
+            align-items: flex-start;
+            flex-wrap: nowrap; /* prevents wrapping */
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo-wrapper {
+            display: flex;
+            align-items: center;  /* vertically align logo with text */
+            gap: 10px;            /* space between logo and text */
+        }
+
+        .footer-logo-img img {
+            height: 75px;   /* adjust as needed */
+            width: auto;
+        }
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-logo-main {
+            font-weight: bold;
+            font-size: 40px;
+            margin-bottom: 8px;
+            color: #D4B896;
+        }
+
+        .footer-logo-sub {
+            font-weight: 400;
+            font-size: 16px;
+            color: #F5F3F0;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 80px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .footer-section {
+            min-width: 150px;
+        }
+
+        .footer-section-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #D4B896;
+        }
+
+        .footer-section-content {
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #F5F3F0;
+        }
+
+        .footer-section-content div {
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section-content div:hover {
+            color: #D4B896;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background: #D4B896;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #3A3A3A;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #C4A586;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom-section {
+            border-top: 1px solid rgba(212, 184, 150, 0.3);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom-section div {
+            font-size: 13px;
+            color: rgba(245, 243, 240, 0.8);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-section div:hover {
+            color: #D4B896;
+        }
+
+        .footer-bottom-left {
+            text-align: left;
+        }
+
+        .footer-bottom-center {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .footer-bottom-right {
+            text-align: right;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: #8B6F47;
+            border-radius: 5px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 100;
+            padding: 80px 20px 20px;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #3A3A3A;
+        }
+        
+        .mobile-nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mobile-nav-menu a {
+            text-decoration: none;
+            color: #3A3A3A;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .mobile-nav-menu a.active {
+            color: #8B6F47;
+        }
+        
+        /* Mobile header adjustments */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+                margin-left: 15px;
+            }
+            
+            .header-right {
+                gap: 10px;
+            }
+            
+            .explore-btn {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            
+            .language-selector select, 
+            .currency-selector select {
+                padding: 5px;
+                font-size: 12px;
+            }
+            
+            .user-icon {
+                width: 32px;
+                height: 32px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px 15px;
+                height: auto;
+                min-height: 60px;
+            }
+            
+            .logo-main {
+                font-size: 22px;
+            }
+            
+            .logo-sub {
+                font-size: 12px;
+            }
+            
+            .header-right {
+                gap: 8px;
+            }
+            
+            .explore-btn {
+                display: none;
+            }
+            
+            .mobile-explore-btn {
+                display: block;
+                background: #8B6F47;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 6px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 14px;
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+        
+        /* Hero section mobile adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero-container {
+                flex-direction: column;
+                padding: 0 15px;
+                gap: 30px;
+            }
+            
+            .hero-content h2 {
+                font-size: 28px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            
+            .hero-content p {
+                font-size: 14px;
+                margin-bottom: 30px;
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .hero-buttons {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .main-btn {
+                width: 100%;
+                padding: 12px;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            
+            .hero-image {
+                height: 250px;
+                border-radius: 20px;
+            }
+            
+            .carousel-prev,
+            .carousel-next {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+            
+            .hero-slider-controls {
+                right: 10px;
+                bottom: 10px;
+                padding: 5px 10px;
+            }
+            
+            .slider-progress {
+                width: 60px;
+            }
+            
+            .slider-numbers {
+                font-size: 14px;
+                min-width: 50px;
+            }
+        }
+        
+        /* Featured section mobile adjustments */
+        @media (max-width: 1024px) {
+            .featured {
+                padding: 60px 0;
+            }
+            
+            .featured-card {
+                flex-direction: column;
+                border-radius: 30px;
+                margin-bottom: 50px;
+            }
+            
+            .featured-content {
+                padding: 40px;
+                order: 2;
+            }
+            
+            .featured-content h3 {
+                font-size: 26px;
+                margin-bottom: 20px;
+            }
+            
+            .featured-content p {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+            
+            .featured-image {
+                order: 1;
+            }
+            
+            .featured-main-image {
+                height: 350px;
+                border-radius: 30px 30px 0 0;
+            }
+            
+            .featured-small-image {
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                width: 200px;
+                height: 250px;
+                margin: -50px auto 20px;
+            }
+            
+            .featured-card[style*="row-reverse"] {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .featured-content {
+                padding: 30px 20px;
+            }
+            
+            .featured-content h3 {
+                font-size: 22px;
+            }
+            
+            .featured-content p {
+                font-size: 16px;
+            }
+            
+            .featured-main-image {
+                height: 250px;
+            }
+            
+            .featured-small-image {
+                width: 150px;
+                height: 200px;
+            }
+        }
+        
+        /* Stats section mobile adjustments */
+        @media (max-width: 1024px) {
+            .stats {
+                padding: 60px 0;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .stats-text h3 {
+                font-size: 28px;
+            }
+            
+            .stats-text p {
+                font-size: 16px;
+            }
+            
+            .stats-image-container {
+                min-height: 300px;
+                margin-top: 30px;
+            }
+            
+            .stats-list {
+                padding-top: 0;
+            }
+            
+            .stat-item {
+                padding: 20px 0;
+            }
+            
+            .stat-number {
+                font-size: 40px;
+            }
+            
+            .stat-info h4 {
+                font-size: 16px;
+            }
+            
+            .stat-info p {
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-text h3 {
+                font-size: 24px;
+            }
+            
+            .stats-image-container {
+                min-height: 250px;
+            }
+            
+            .stat-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .stat-number {
+                font-size: 32px;
+            }
+        }
+        
+        /* Why choose us mobile adjustments */
+        @media (max-width: 1024px) {
+            .why-us {
+                padding: 80px 0;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                margin-bottom: 50px;
+                gap: 20px;
+            }
+            
+            .section-header h4 {
+                margin-right: 0;
+                font-size: 24px;
+            }
+            
+            .section-header h2 {
+                font-size: 36px;
+                margin-left: 0;
+                text-align: center;
+            }
+            
+            .why-us-content p {
+                font-size: 20px;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-bottom: 50px;
+            }
+            
+            .feature-item {
+                gap: 20px;
+            }
+            
+            .feature-icon img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .feature-text h3 {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            .why-us-content p {
+                font-size: 16px;
+            }
+            
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+        
+        /* Gallery mobile adjustments */
+        @media (max-width: 1024px) {
+            .gallery {
+                padding: 60px 0;
+            }
+            
+            .gallery-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+                margin-bottom: 40px;
+            }
+            
+            .gallery-header h2 {
+                font-size: 26px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .gallery-item {
+                height: 300px;
+                border-radius: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-header h2 {
+                font-size: 22px;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+        }
+        
+        /* Contact form mobile adjustments */
+        @media (max-width: 1024px) {
+            .contact-container-wrapper {
+                flex-direction: column;
+                border-radius: 15px;
+                margin: 20px;
+            }
+            
+            .contact-form-section {
+                padding: 40px 30px;
+            }
+            
+            .contact h2 {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+            
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+            
+            .checkbox-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .contact-image-section {
+                min-height: 250px;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-container-wrapper {
+                margin: 10px;
+            }
+            
+            .contact-form-section {
+                padding: 30px 20px;
+            }
+            
+            .contact h2 {
+                font-size: 18px;
+            }
+            
+            .image-placeholder {
+                padding: 20px;
+            }
+            
+            .image-placeholder i {
+                font-size: 48px;
+            }
+            
+            .image-placeholder p {
+                font-size: 16px;
+            }
+        }
+        
+        /* AI Assistant mobile adjustments */
         @media (max-width: 768px) {
             .ai-chat-interface {
-                width: 300px;
-                height: 450px;
+                width: calc(100vw - 40px);
+                height: 70vh;
                 right: 20px;
-                bottom: 20px;
+                bottom: 80px;
             }
-
+            
             .ai-assistant {
                 bottom: 20px;
                 right: 20px;
             }
-
+            
             .ai-assistant-btn {
                 width: 60px;
                 height: 60px;
             }
-
+            
             .ai-assistant-btn svg {
                 width: 28px;
                 height: 28px;
             }
-        }
-
-        @media (max-width: 480px) {
-            .ai-chat-interface {
-                width: calc(100vw - 40px);
-                height: 400px;
-                right: 20px;
-                bottom: 20px;
+            
+            .ai-chat-messages {
+                padding: 15px;
+            }
+            
+            .ai-message-content {
+                max-width: 85%;
+                font-size: 14px;
             }
         }
         
-       /* Footer Styles - Updated with new palette */
-.footer-container {
-    background: linear-gradient(135deg, #3A3A3A 0%, #2A2A2A 100%);
-    color: #F5F3F0;
-    padding: 40px 10% 30px;
-    margin-top: auto;
-    position: relative;
-    overflow: hidden;
-    min-height: 300px;
-}
-
-.footer-decoration {
-    position: absolute;
-    z-index: 0; /* stays behind text */
-    background-size: contain; /* make them fill more */
-    background-repeat: no-repeat;
-    opacity: 0.5; /* stronger visibility */
-    pointer-events: none;
-    
-}
-
-.decoration-1 {
-    width: 532px;
-    height: 516px;
-    left: -220px;
-    top: 200.93px;
-    background-image: url('images/v127_615.png');
-    /* background: radial-gradient(circle, #8B8680 0%, transparent 60%); */
-    transform: rotate(15deg);
-}
-
-.decoration-2 {
-    width: 574px;
-    height: 517px;
-    right: -150px;
-    top: -290.2px;
-    background-image: url('images/v127_615.png');
-    /* background: radial-gradient(circle, #8B8680 0%, transparent 60%); */
-    transform: rotate(-15deg);
-}
-
-.decoration-3 {
-    width: 574px;
-    height: 517px;
-    left: -150px;
-    top: 170.2px;
-    background-image: url('images/v127_616.png');
-    /* background: radial-gradient(circle, #8B8680 0%, transparent 60%); */
-    transform: rotate(10deg);
-}
-
-
-.decoration-4 {
-    width: 574px;
-    height: 517px;
-    right: -150px;
-    top: -290.2px;
-    background-image: url('images/v127_616.png');
-    /* background: radial-gradient(circle, #8B8680 0%, transparent 60%); */
-    transform: rotate(-10deg);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between; /* keeps logo left and links right */
-    align-items: flex-start;
-    flex-wrap: nowrap; /* prevents wrapping */
-    gap: 40px;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 1;
-}
-.footer-logo-wrapper {
-  display: flex;
-  align-items: center;  /* vertically align logo with text */
-  gap: 10px;            /* space between logo and text */
-}
-
-.footer-logo-img img {
-  height: 75px;   /* adjust as needed */
-  width: auto;
-}
-
-.footer-logo-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.footer-logo {
-    flex: 1;
-    min-width: 300px;
-}
-
-.footer-logo-main {
-    font-weight: bold;
-    font-size: 40px;
-    margin-bottom: 8px;
-    color: #D4B896;
-}
-
-.footer-logo-sub {
-    font-weight: 400;
-    font-size: 16px;
-    color: #F5F3F0;
-}
-
-.footer-right {
-    display: flex;
-    gap: 80px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-.footer-section {
-    min-width: 150px;
-}
-
-.footer-section-title {
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #D4B896;
-}
-
-.footer-section-content {
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 1.8;
-    color: #F5F3F0;
-}
-
-.footer-section-content div {
-    margin-bottom: 8px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.footer-section-content div:hover {
-    color: #D4B896;
-}
-
-.social-icons {
-    display: flex;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.social-icon {
-    width: 36px;
-    height: 36px;
-    background: #D4B896;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #3A3A3A;
-    font-weight: 600;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-    background: #C4A586;
-    color: #FFFFFF;
-    transform: translateY(-2px);
-}
-
-.footer-bottom-section {
-    border-top: 1px solid rgba(212, 184, 150, 0.3);
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.footer-bottom-section div {
-    font-size: 13px;
-    color: rgba(245, 243, 240, 0.8);
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.footer-bottom-section div:hover {
-    color: #D4B896;
-}
-
-.footer-bottom-left {
-    text-align: left;
-}
-
-.footer-bottom-center {
-    text-align: center;
-    flex-grow: 1;
-}
-
-.footer-bottom-right {
-    text-align: right;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .footer-container {
-        padding: 60px 8% 30px;
-    }
-    
-    .footer-right {
-        gap: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        padding: 40px 5% 20px;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .footer-right {
-        gap: 40px;
-    }
-    
-    .footer-logo-main {
-        font-size: 36px;
-    }
-    
-    .footer-bottom-section {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-    
-    .footer-bottom-left,
-    .footer-bottom-center,
-    .footer-bottom-right {
-        text-align: center !important;
-    }
-    
-    .property-search .inputs {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .property-search .input-group {
-        min-width: 280px;
-        margin-bottom: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-container {
-        padding: 40px 5% 20px;
-    }
-    
-    .footer-logo-main {
-        font-size: 32px;
-    }
-    
-    .footer-logo-sub {
-        font-size: 16px;
-    }
-    
-    .footer-section-title {
-        font-size: 16px;
-    }
-    
-    .decoration-1,
-    .decoration-3 {
-        left: -300px;
-    }
-    
-    .decoration-2,
-    .decoration-4 {
-        right: -300px;
-    }
-    
-    .hero {
-        padding: 0 2rem;
-    }
-}
-
+        /* Footer mobile adjustments */
+        @media (max-width: 1024px) {
+            .footer-container {
+                padding: 40px 5% 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-right {
+                gap: 40px;
+                justify-content: space-between;
+            }
+            
+            .footer-section {
+                min-width: 120px;
+            }
+            
+            .footer-logo-main {
+                font-size: 32px;
+            }
+            
+            .footer-bottom-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .footer-bottom-left,
+            .footer-bottom-center,
+            .footer-bottom-right {
+                text-align: center !important;
+            }
+            
+            .decoration-1,
+            .decoration-2,
+            .decoration-3,
+            .decoration-4 {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-right {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-section {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .footer-logo-main {
+                font-size: 28px;
+            }
+            
+            .footer-logo-sub {
+                font-size: 14px;
+            }
+        }
+        
+        /* Utility classes for mobile */
+        .mobile-only {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-only {
+                display: block;
+            }
+            
+            .desktop-only {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-  <!-- Header -->
+    <!-- Header -->
     <header class="header">
-      <div class="header-left">
-        <div class="logo">
-            <div class="logo-main">AqariQ</div>
-            <div class="logo-sub">Where Ownership Starts</div>
+        <div class="header-left">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <div class="logo-main">AqariQ</div>
+                <div class="logo-sub">Where Ownership Starts</div>
+            </div>
         </div>
-      </div>
         
-       <nav class="nav-menu">
-    <a href="home.html" class="active">Home</a>
-    <a href="Finding_land/index.html">Lands</a>
-    <a href="Finding_property/index.html">Properties</a>
-    <a href="#gallery">Gallery</a>
-    <a href="AboutUs.html">About us</a>
-    <a href="blog.html">Blogs</a>
-    <a href="membership.html">Membership</a>
-    <a href="faq.html">FAQs</a>
-</nav>
+        <nav class="nav-menu">
+            <a href="home.html" class="active">Home</a>
+            <a href="Finding_land/index.html">Lands</a>
+            <a href="Finding_property/index.html">Properties</a>
+            <a href="#gallery">Gallery</a>
+            <a href="AboutUs.html">About us</a>
+            <a href="blog.html">Blogs</a>
+            <a href="membership.html">Membership</a>
+            <a href="faq.html">FAQs</a>
+        </nav>
         
         <div class="header-right">
             <a href="exploreOman.html" class="explore-btn">eXPLORE</a>
             <div class="language-selector">
                 <select>
-                  <option value="Arabic">Arabic</option>
-                  <option value="English">Eng</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="English">Eng</option>
                 </select>
             </div>
             <div class="currency-selector">
-            <select>
-                <option value="USD">USD</option>
-                <option value="OMR">OMR</option>
-            </select>
-          </div>
-          <div class="user-account">
-            <img src="images/Picture 1 copy.png" alt="User Account" class="user-icon" onclick="toggleUserDropdown()">
-            <div class="user-dropdown" id="userDropdown">
-              <a href="Signup1/index.html" class="dropdown-item" id="signinBtn">Sign In</a>
-              <a href="profile.html" class="dropdown-item" id="profileBtn" style="display: none;">View Profile</a>
-              <div class="dropdown-divider" id="divider" style="display: none;"></div>
-              <a href="#logout" class="dropdown-item" id="logoutBtn" style="display: none;">Log Out</a>
+                <select>
+                    <option value="USD">USD</option>
+                    <option value="OMR">OMR</option>
+                </select>
             </div>
-          </div>
+            <div class="user-account">
+                <img src="images/Picture 1 copy.png" alt="User Account" class="user-icon" onclick="toggleUserDropdown()">
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="Signup1/index.html" class="dropdown-item" id="signinBtn">Sign In</a>
+                    <a href="profile.html" class="dropdown-item" id="profileBtn" style="display: none;">View Profile</a>
+                    <div class="dropdown-divider" id="divider" style="display: none;"></div>
+                    <a href="#logout" class="dropdown-item" id="logoutBtn" style="display: none;">Log Out</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section with Carousel -->
-<section class="hero">
-    <div class="hero-container">
-        <div class="hero-content">
-            <h2>FROM OPEN PLOTS TO ELEGANT VILLAS EVERY THING HERE IS READY, REGISTERED, AND REAL.</h2>
-            <p>A trusted platform for buying land, villas, and flats all officially approved by the Ministry of Housing and Urban Planning. Explore verified properties, complete transactions confidently, and secure your space with ease.</p>
-            
-            <div class="hero-buttons">
-                <a href="Finding_land/index.html" class="main-btn">View lands</a>
-    <a href="Finding_property/index.html" class="main-btn">View built properties</a>
-    <a href="builders.html" class="main-btn">View Builders</a>
-            </div>
-        </div>
-        
-        <div class="hero-image">
-            <div class="image-carousel">
-                <div class="carousel-track">
-                    <!-- Slides will be added dynamically via JavaScript -->
-                </div>
-                <button class="carousel-prev" aria-label="Previous slide">‹</button>
-                <button class="carousel-next" aria-label="Next slide">›</button>
-            </div>
-            
-            <div class="hero-slider-controls">
-                <span class="slider-numbers">01 / 03</span>
-                <div class="slider-progress">
-                    <div class="slider-progress-bar"></div>
-                </div>
-            </div>
-        </div>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        <nav class="mobile-nav-menu">
+            <a href="home.html" class="active">Home</a>
+            <a href="Finding_land/index.html">Lands</a>
+            <a href="Finding_property/index.html">Properties</a>
+            <a href="#gallery">Gallery</a>
+            <a href="AboutUs.html">About us</a>
+            <a href="blog.html">Blogs</a>
+            <a href="membership.html">Membership</a>
+            <a href="faq.html">FAQs</a>
+            <a href="exploreOman.html" class="mobile-explore-btn">eXPLORE OMAN</a>
+        </nav>
     </div>
-</section>
+
+    <!-- Hero Section with Carousel -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h2>FROM OPEN PLOTS TO ELEGANT VILLAS EVERY THING HERE IS READY, REGISTERED, AND REAL.</h2>
+                <p>A trusted platform for buying land, villas, and flats all officially approved by the Ministry of Housing and Urban Planning. Explore verified properties, complete transactions confidently, and secure your space with ease.</p>
+                
+                <div class="hero-buttons">
+                    <a href="Finding_land/index.html" class="main-btn">View lands</a>
+                    <a href="Finding_property/index.html" class="main-btn">View built properties</a>
+                    <a href="builders.html" class="main-btn">View Builders</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="image-carousel">
+                    <div class="carousel-track">
+                        <!-- Slides will be added dynamically via JavaScript -->
+                    </div>
+                    <button class="carousel-prev" aria-label="Previous slide">‹</button>
+                    <button class="carousel-next" aria-label="Next slide">›</button>
+                </div>
+                
+                <div class="hero-slider-controls">
+                    <span class="slider-numbers">01 / 03</span>
+                    <div class="slider-progress">
+                        <div class="slider-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Featured Properties Section -->
     <section class="featured">
         <div class="featured-container">
@@ -1858,7 +2219,7 @@ a.btn {
                 <div class="featured-content">
                     <h3>Find your haven of luxury timeless villas in stunning surroundings</h3>
                     <p>Experience refined living in our exclusive villas where modern elegance meets timeless comfort, surrounded by stunning views and serene privacy.</p>
-                   <a href="Finding_property/index.html" class="main-btn">find out more</a>
+                    <a href="Finding_property/index.html" class="main-btn">find out more</a>
                 </div>
 
                 
@@ -1888,58 +2249,58 @@ a.btn {
         </div>
     </section>
 
- <!-- Stats Section -->
-<section class="stats">
-  <div class="stats-container">
-    <!-- Left Column (Text + Image) -->
-    <div class="stats-left">
-      <div class="stats-text">
-        <h3>WE'RE ALWAYS HERE FOR YOU</h3>
-        <p>Our premium villas offer more than space they offer a lifestyle. Designed for elegance, comfort, and long-term value.</p>
-      </div>
-      
-      <!-- Main Image Container -->
-      <div class="stats-image-container">
-        <div class="stats-main-image">
-          <img src="images/Picture 7.png" alt="Villa Image">
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <!-- Left Column (Text + Image) -->
+            <div class="stats-left">
+                <div class="stats-text">
+                    <h3>WE'RE ALWAYS HERE FOR YOU</h3>
+                    <p>Our premium villas offer more than space they offer a lifestyle. Designed for elegance, comfort, and long-term value.</p>
+                </div>
+                
+                <!-- Main Image Container -->
+                <div class="stats-image-container">
+                    <div class="stats-main-image">
+                        <img src="images/Picture 7.png" alt="Villa Image">
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- Right Column (Stats List) -->
+            <div class="stats-list">
+                <div class="stat-item">
+                    <span class="stat-number">01</span>
+                    <div class="stat-info">
+                        <h4>TOTAL OF PREMIUM VILLAS</h4>
+                        <p>103 Units</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">02</span>
+                    <div class="stat-info">
+                        <h4>YEAR OF CONSTRUCTION</h4>
+                        <p>2025</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">03</span>
+                    <div class="stat-info">
+                        <h4>USABLE VILLA SPACE</h4>
+                        <p>1452 m²</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">04</span>
+                    <div class="stat-info">
+                        <h4>AVERAGE VILLA PRICE</h4>
+                        <p>7,987,297.30 USD</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-      </div>
-    </div>
-    
-    <!-- Right Column (Stats List) -->
-    <div class="stats-list">
-      <div class="stat-item">
-        <span class="stat-number">01</span>
-        <div class="stat-info">
-          <h4>TOTAL OF PREMIUM VILLAS</h4>
-          <p>103 Units</p>
-        </div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">02</span>
-        <div class="stat-info">
-          <h4>YEAR OF CONSTRUCTION</h4>
-          <p>2025</p>
-        </div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">03</span>
-        <div class="stat-info">
-          <h4>USABLE VILLA SPACE</h4>
-          <p>1452 m²</p>
-        </div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">04</span>
-        <div class="stat-info">
-          <h4>AVERAGE VILLA PRICE</h4>
-          <p>7,987,297.30 USD</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Why Choose Us Section -->
     <section class="why-us">
@@ -1997,50 +2358,51 @@ a.btn {
 
     <!-- Gallery Section -->
     <section id="gallery">
-    <section class="gallery">
-        <div class="gallery-container">
-            <div class="gallery-header">
-                <h2>Explore our gallery</h2>
-               <a href="gallery-full.html">See All</a>
+        <section class="gallery">
+            <div class="gallery-container">
+                <div class="gallery-header">
+                    <h2>Explore our gallery</h2>
+                    <a href="gallery-full.html">See All</a>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="navigateToProperty('luxury-villa-al-mouj')">
+                        <div class="img-container">
+                            <img src="images/Picture 8.png" alt="Gallery Image 1">
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="navigateToProperty('modern-family-villa')">
+                        <div class="img-container">
+                            <img src="images/Picture 9.png" alt="Gallery Image 2">
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="navigateToProperty('investment-villa')">
+                        <div class="img-container">
+                            <img src="images/Picture 10.png" alt="Gallery Image 3">
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="navigateToProperty('premium-apartment')">
+                        <div class="img-container">
+                            <img src="images/Picture 11.png" alt="Gallery Image 4">
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="navigateToProperty('residential-plot')">
+                        <div class="img-container">
+                            <img src="images/Picture 12.png" alt="Gallery Image 5">
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="navigateToProperty('investment-land')">
+                        <div class="img-container">
+                            <img src="images/Picture 13.png" alt="Gallery Image 6">
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item" onclick="navigateToProperty('luxury-villa-al-mouj')">
-                    <div class="img-container">
-                        <img src="images/Picture 8.png" alt="Gallery Image 1">
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="navigateToProperty('modern-family-villa')">
-                    <div class="img-container">
-                        <img src="images/Picture 9.png" alt="Gallery Image 2">
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="navigateToProperty('investment-villa')">
-                    <div class="img-container">
-                        <img src="images/Picture 10.png" alt="Gallery Image 3">
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="navigateToProperty('premium-apartment')">
-                    <div class="img-container">
-                        <img src="images/Picture 11.png" alt="Gallery Image 4">
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="navigateToProperty('residential-plot')">
-                    <div class="img-container">
-                        <img src="images/Picture 12.png" alt="Gallery Image 5">
-                    </div>
-                </div>
-                <div class="gallery-item" onclick="navigateToProperty('investment-land')">
-                    <div class="img-container">
-                        <img src="images/Picture 13.png" alt="Gallery Image 6">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
     </section>
 
-      <div class="contact-container-wrapper">
+    <!-- Contact Form Section -->
+    <div class="contact-container-wrapper">
         <div class="contact-form-section">
             <section class="contact">
                 <div class="contact-container">
@@ -2096,46 +2458,21 @@ a.btn {
         </div>
         
         <div class="contact-image-section">
-            
+            <div class="image-placeholder">
                 <i class="fas fa-home"></i>
                 <img src="images/Picture 3.png" alt="CONTAINER" class="image-placeholder">
             </div>
         </div>
     </div>
 
-    <script>
-        // Form submission handler
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Get selected interests
-            const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
-                .map(checkbox => checkbox.value);
-            
-            data.interests = interests;
-            
-            // Simple success message
-            alert('Thank you for your enquiry! We will get back to you soon.');
-            
-            // In a real application, you would send this data to your server
-            console.log('Form data:', data);
-            
-            // Reset form
-            this.reset();
-        });
-    </script>
-  <!-- AI Assistant HTML -->
-   <div class="ai-assistant">
-    <button class="ai-assistant-btn" onclick="toggleAIChat()">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V7.5C15 8.8 13.8 10 12.5 10H11.5C10.2 10 9 8.8 9 7.5V6.5L3 7V9C3 10.1 3.9 11 5 11V13.5C5 15.4 6.6 17 8.5 17H15.5C17.4 17 19 15.4 19 13.5V11C20.1 11 21 10.1 21 9ZM7.5 12C7.5 11.2 8.2 10.5 9 10.5S10.5 11.2 10.5 12S9.8 13.5 9 13.5S7.5 12.8 7.5 12ZM13.5 12C13.5 11.2 14.2 10.5 15 10.5S16.5 11.2 16.5 12S15.8 13.5 15 13.5S13.5 12.8 13.5 12Z"/>
-        </svg>
-    </button>
-</div>
+    <!-- AI Assistant HTML -->
+    <div class="ai-assistant">
+        <button class="ai-assistant-btn" onclick="toggleAIChat()">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V7.5C15 8.8 13.8 10 12.5 10H11.5C10.2 10 9 8.8 9 7.5V6.5L3 7V9C3 10.1 3.9 11 5 11V13.5C5 15.4 6.6 17 8.5 17H15.5C17.4 17 19 15.4 19 13.5V11C20.1 11 21 10.1 21 9ZM7.5 12C7.5 11.2 8.2 10.5 9 10.5S10.5 11.2 10.5 12S9.8 13.5 9 13.5S7.5 12.8 7.5 12ZM13.5 12C13.5 11.2 14.2 10.5 15 10.5S16.5 11.2 16.5 12S15.8 13.5 15 13.5S13.5 12.8 13.5 12Z"/>
+            </svg>
+        </button>
+    </div>
 
     <div class="ai-chat-interface" id="aiChatInterface">
         <div class="ai-chat-header">
@@ -2168,648 +2505,271 @@ a.btn {
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer> 
+        <div class="footer-container">
+            
+            <!-- Decorations -->
+            <div class="footer-decoration decoration-1"></div>
+            <div class="footer-decoration decoration-2"></div>
+            <div class="footer-decoration decoration-3"></div>
+            <div class="footer-decoration decoration-4"></div>
+
+            <!-- Main Footer Content -->
+            <div class="footer-content">
+                <!-- Left: Logo -->
+                <div class="footer-logo">
+                    <div class="footer-logo-wrapper">
+                        <div class="footer-logo-img">
+                            <img src="images/logo.png" alt="AqariQ Logo">
+                        </div>
+                        <div class="footer-logo-text">
+                            <div class="footer-logo-main">AqariQ</div>
+                            <div class="footer-logo-sub">Where Ownership Starts</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Menu + Contact + Social -->
+                <div class="footer-right">
+                    <div class="footer-section">
+                        <div class="footer-section-title">Menu</div>
+                        <div class="footer-section-content">
+                            <div onclick="location.href='home.html'">Home</div>
+                            <div onclick="location.href='Finding_land/index.html'">Lands</div>
+                            <div onclick="location.href='Finding_property/index.html'">Properties</div>
+                            <div onclick="location.href='home.html#gallery'">Gallery</div>
+                            <div onclick="location.href='AboutUs.html'">About us</div>
+                            <div onclick="location.href='blog.html'">Blogs</div>
+                            <div onclick="location.href='membership.html'">Membership</div>
+                            <div onclick="location.href='faq.html'">FAQs</div>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <div class="footer-section-title">Contact</div>
+                        <div class="footer-section-content">
+                            <div>AqariQ25@gmail.com</div>
+                            <div>+968 77272442</div>
+                            <div>Muscat, Oman</div>
+                            <div>https://helpdesk.com</div>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <div class="footer-section-title">Social</div>
+                        <div class="social-icons">
+                            <div class="social-icon">f</div>
+                            <div class="social-icon">t</div>
+                            <div class="social-icon">in</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer-bottom-section">
+                <div class="footer-bottom-left">Copyright © Dotcreativemarket</div>
+                <div class="footer-bottom-center">Terms of Use</div>
+                <div class="footer-bottom-right">Privacy Policy</div>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // AI Configuration
-        const aiConfig = {
-            provider: 'local', // Default to local/mock for demo
-            apiKey: '',
-            model: 'gpt-4',
-            temperature: 0.7,
-            maxTokens: 1000
-        };
-
-        // Real Property Database with AqariQ Website Links
-        const propertyDatabase = {
-            villas: [
-                {
-                    id: "VIL001",
-                    title: "Luxury Seaview Villa",
-                    location: "Al Mouj",
-                    price: 479850,
-                    currency: "OMR",
-                    beds: 4,
-                    baths: 5,
-                    area: 450,
-                    features: ["Private Pool", "Sea View", "Marina Access", "Garden", "Maid Room"],
-                    description: "Stunning waterfront villa with panoramic sea views and direct marina access",
-                    slug: "luxury-seaview-villa-al-mouj",
-                    coordinates: { lat: 23.6345, lng: 58.1500 },
-                    yearBuilt: 2020,
-                    parking: 3,
-                    furnished: true,
-                    available: true
-                },
-                {
-                    id: "VIL002",
-                    title: "Modern Family Villa",
-                    location: "Qurum",
-                    price: 450125,
-                    currency: "OMR",
-                    beds: 5,
-                    baths: 4,
-                    area: 380,
-                    features: ["Garden", "Pool", "Near Schools", "Gym Room"],
-                    description: "Perfect family home in prestigious Qurum with excellent school access",
-                    slug: "modern-family-villa-qurum",
-                    coordinates: { lat: 23.5928, lng: 58.4107 },
-                    yearBuilt: 2019,
-                    parking: 2,
-                    furnished: false,
-                    available: true
-                },
-                {
-                    id: "VIL003",
-                    title: "Investment Villa",
-                    location: "Al Khuwair",
-                    price: 385000,
-                    currency: "OMR",
-                    beds: 3,
-                    baths: 3,
-                    area: 320,
-                    features: ["Rental Ready", "Good ROI", "Central Location", "Furnished"],
-                    description: "Excellent investment property with guaranteed rental income",
-                    slug: "investment-villa-al-khuwair",
-                    coordinates: { lat: 23.5841, lng: 58.4059 },
-                    yearBuilt: 2018,
-                    parking: 2,
-                    furnished: true,
-                    available: true
-                }
-            ],
-            apartments: [
-                {
-                    id: "APT001",
-                    title: "Premium 2BR Apartment",
-                    location: "Qurum Heights",
-                    price: 165000,
-                    currency: "OMR",
-                    beds: 2,
-                    baths: 2,
-                    area: 120,
-                    features: ["City View", "Gym", "Pool", "Balcony"],
-                    description: "Modern apartment with stunning city views and premium amenities",
-                    slug: "premium-2br-apartment-qurum-heights",
-                    coordinates: { lat: 23.5978, lng: 58.4117 },
-                    yearBuilt: 2021,
-                    parking: 1,
-                    furnished: true,
-                    available: true
-                },
-                {
-                    id: "APT002",
-                    title: "Affordable 1BR Flat",
-                    location: "Ruwi",
-                    price: 75000,
-                    currency: "OMR",
-                    beds: 1,
-                    baths: 1,
-                    area: 65,
-                    features: ["Central Location", "Near Metro", "Furnished", "Ready"],
-                    description: "Perfect starter home in the heart of Muscat's business district",
-                    slug: "affordable-1br-flat-ruwi",
-                    coordinates: { lat: 23.5859, lng: 58.5931 },
-                    yearBuilt: 2017,
-                    parking: 1,
-                    furnished: true,
-                    available: true
-                },
-                {
-                    id: "APT003",
-                    title: "Budget 2BR Apartment",
-                    location: "Al Khuwair",
-                    price: 95000,
-                    currency: "OMR",
-                    beds: 2,
-                    baths: 2,
-                    area: 85,
-                    features: ["Spacious", "Family Friendly", "Parking", "Balcony"],
-                    description: "Great value family apartment in popular Al Khuwair area",
-                    slug: "budget-2br-apartment-al-khuwair",
-                    coordinates: { lat: 23.5841, lng: 58.4059 },
-                    yearBuilt: 2016,
-                    parking: 1,
-                    furnished: false,
-                    available: true
-                }
-            ],
-            lands: [
-                {
-                    id: "LND001",
-                    title: "Residential Plot - Build Your Dream Villa",
-                    location: "Al Hail",
-                    price: 85000,
-                    currency: "OMR",
-                    area: 600,
-                    features: ["Approved", "Residential", "Ready to Build", "Corner Plot"],
-                    description: "Prime residential plot ready for immediate development - perfect for building your own villa",
-                    slug: "residential-plot-build-dream-villa-al-hail",
-                    coordinates: { lat: 23.6234, lng: 58.4567 },
-                    buildingPermit: true,
-                    utilities: ["Water", "Electricity", "Sewage"],
-                    available: true
-                },
-                {
-                    id: "LND002",
-                    title: "Investment Land Plot",
-                    location: "Al Seeb",
-                    price: 95000,
-                    currency: "OMR",
-                    area: 800,
-                    features: ["Commercial Potential", "Main Road Access", "High Growth Area"],
-                    description: "Excellent investment opportunity in rapidly developing Al Seeb area",
-                    slug: "investment-land-plot-al-seeb",
-                    coordinates: { lat: 23.6707, lng: 58.1884 },
-                    buildingPermit: true,
-                    utilities: ["Water", "Electricity"],
-                    available: true
-                }
-            ]
-        };
-
-        // Configuration for your website
-        const WEBSITE_CONFIG = {
-            baseUrl: 'https://aqariq.com', // Your actual domain
-            propertyPath: '/property',      // Property detail page path
-            searchPath: '/search',          // Search results path
-            contactPath: '/contact',        // Contact page path
-            viewingPath: '/schedule-viewing' // Viewing booking path
-        };
-
-        // Function to generate AqariQ website links
-        function generateAqariqLink(property, action = 'view') {
-            const baseUrl = WEBSITE_CONFIG.baseUrl;
-            
-            switch (action) {
-                case 'view':
-                    return `${baseUrl}${WEBSITE_CONFIG.propertyPath}/${property.id}/${property.slug}`;
-                    
-                case 'contact':
-                    return `${baseUrl}${WEBSITE_CONFIG.contactPath}?property=${property.id}&ref=ai-assistant`;
-                    
-                case 'schedule':
-                    return `${baseUrl}${WEBSITE_CONFIG.viewingPath}?property=${property.id}&title=${encodeURIComponent(property.title)}`;
-                    
-                case 'search-similar':
-                    const params = new URLSearchParams({
-                        location: property.location,
-                        type: property.id.startsWith('VIL') ? 'villa' : property.id.startsWith('APT') ? 'apartment' : 'land',
-                        max_price: property.price,
-                        beds: property.beds || ''
-                    });
-                    return `${baseUrl}${WEBSITE_CONFIG.searchPath}?${params.toString()}`;
-                    
-                default:
-                    return `${baseUrl}${WEBSITE_CONFIG.propertyPath}/${property.id}/${property.slug}`;
-            }
-        }
-
-        // Function to get properties within budget with AqariQ links
-        function getPropertiesInBudget(maxBudget, propertyType = null) {
-            const allProperties = getAllProperties();
-            
-            return allProperties
-                .filter(prop => {
-                    const meetsPrice = prop.price <= maxBudget;
-                    const meetsType = !propertyType || prop.id.startsWith(propertyType.toUpperCase().substr(0,3));
-                    return meetsPrice && meetsType && prop.available;
-                })
-                .sort((a, b) => a.price - b.price) // Sort by price ascending
-                .map(prop => ({
-                    ...prop,
-                    link: generateAqariqLink(prop, 'view'),
-                    contactLink: generateAqariqLink(prop, 'contact'),
-                    scheduleLink: generateAqariqLink(prop, 'schedule'),
-                    similarLink: generateAqariqLink(prop, 'search-similar')
-                }));
-        }
-
-        // AI Integration Functions
-        async function callAI(message, context = '') {
-            const provider = aiConfig.provider;
-            
-            if (provider === 'local') {
-                return await mockAIResponse(message, context);
-            }
-            
-            try {
-                updateStatus('Processing...', false);
-                
-                const systemPrompt = createSystemPrompt();
-                const response = await makeAPICall(provider, message, systemPrompt, context);
-                
-                updateStatus('AI Online', true);
-                return response;
-                
-            } catch (error) {
-                console.error('AI API Error:', error);
-                updateStatus('AI Error', false);
-                return `I apologize, but I'm experiencing technical difficulties with the AI service. Error: ${error.message}. Let me try to help you with our local database instead.\n\n${await mockAIResponse(message, context)}`;
-            }
-        }
-
-        function createSystemPrompt() {
-            return `You are an expert real estate assistant for AqariQ, a premium property company in Oman. You have access to a comprehensive property database and deep knowledge of the Omani real estate market.
-
-PERSONALITY & TONE:
-- Professional yet friendly and approachable
-- Confident in your expertise but humble
-- Use emojis sparingly for key points
-- Focus on being helpful and solution-oriented
-
-YOUR CAPABILITIES:
-- Access to live property database with ${getTotalProperties()} properties
-- Real-time market insights and trends
-- Financing and legal guidance
-- Area expertise across all Omani regions
-- Investment analysis and ROI calculations
-
-PROPERTY DATABASE INCLUDES:
-- Villas: Luxury waterfront, family homes, investment properties
-- Apartments: Modern high-rises, affordable units, penthouses  
-- Land: Residential plots, commercial land, investment opportunities
-- All properties have verified documentation and clear titles
-
-KEY AREAS OF EXPERTISE:
-- Al Mouj (Premium waterfront community)
-- Qurum (Upscale residential, near amenities)
-- Al Khuwair (Business district, good rentals)
-- Al Hail (Affordable family areas)
-- Bousher (Mixed residential/commercial)
-
-ALWAYS INCLUDE:
-- Specific property recommendations with prices
-- Direct links to listings when mentioning properties
-- Realistic market insights
-- Next steps or call-to-action
-
-FORMAT RESPONSES:
-- Use line breaks for readability
-- Include property links as: 🔗 View Details: [URL]
-- Be concise but comprehensive
-- Always end with a helpful question or suggestion`;
-        }
-
-        async function makeAPICall(provider, message, systemPrompt, context) {
-            const messages = [
-                { role: "system", content: systemPrompt },
-                { role: "user", content: `Context: ${context}\n\nUser Question: ${message}` }
-            ];
-
-            let apiUrl, headers, body;
-
-            switch (provider) {
-                case 'openai':
-                    apiUrl = 'https://api.openai.com/v1/chat/completions';
-                    headers = {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${aiConfig.apiKey}`
-                    };
-                    body = {
-                        model: aiConfig.model,
-                        messages: messages,
-                        temperature: aiConfig.temperature,
-                        max_tokens: aiConfig.maxTokens
-                    };
-                    break;
-
-                case 'claude':
-                    apiUrl = 'https://api.anthropic.com/v1/messages';
-                    headers = {
-                        'Content-Type': 'application/json',
-                        'x-api-key': aiConfig.apiKey,
-                        'anthropic-version': '2023-06-01'
-                    };
-                    body = {
-                        model: aiConfig.model,
-                        max_tokens: aiConfig.maxTokens,
-                        messages: messages.filter(m => m.role !== 'system'),
-                        system: systemPrompt
-                    };
-                    break;
-
-                case 'gemini':
-                    apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${aiConfig.model}:generateContent?key=${aiConfig.apiKey}`;
-                    headers = { 'Content-Type': 'application/json' };
-                    body = {
-                        contents: [{
-                            parts: [{ text: `${systemPrompt}\n\n${context}\n\nUser: ${message}` }]
-                        }],
-                        generationConfig: {
-                            temperature: aiConfig.temperature,
-                            maxOutputTokens: aiConfig.maxTokens
-                        }
-                    };
-                    break;
-            }
-
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: headers,
-                body: JSON.stringify(body)
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        
+        if (mobileMenuToggle && mobileNav) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileNav.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
-
-            if (!response.ok) {
-                throw new Error(`API Error: ${response.status} - ${response.statusText}`);
-            }
-
-            const data = await response.json();
-            return extractResponseText(provider, data);
-        }
-
-        function extractResponseText(provider, data) {
-            switch (provider) {
-                case 'openai':
-                    return data.choices[0].message.content;
-                case 'claude':
-                    return data.content[0].text;
-                case 'gemini':
-                    return data.candidates[0].content.parts[0].text;
-                default:
-                    return 'Unable to parse AI response';
-            }
-        }
-
-        // Enhanced Mock AI Response for demo/fallback
-        async function mockAIResponse(message, context) {
-            const messageLower = message.toLowerCase();
             
-            // Simulate API delay
-            await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
-
-            // Create contextual response based on property data
-            const relevantProperties = findRelevantProperties(messageLower);
-            const marketInsights = getMarketInsights(messageLower);
+            mobileNavClose.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
             
-            let response = '';
-
-            // Personalized greeting based on query
-            if (messageLower.includes('villa') && messageLower.includes('pool')) {
-                response += "🏊‍♂️ Excellent choice! Villas with private pools are highly sought after in Oman's climate. Here are my top recommendations:\n\n";
-                
-                relevantProperties.villas.forEach(villa => {
-                    if (villa.features.some(f => f.toLowerCase().includes('pool'))) {
-                        response += `🏠 **${villa.title}**\n`;
-                        response += `📍 ${villa.location} • ${villa.beds} beds • ${villa.area}m²\n`;
-                        response += `💰 ${villa.currency} ${villa.price.toLocaleString()}\n`;
-                        response += `✨ Features: ${villa.features.join(', ')}\n`;
-                        response += `🔗 View Details: ${villa.link}\n\n`;
-                    }
+            // Close mobile nav when clicking on links
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = 'auto';
                 });
+            });
+        }
+        
+        // Touch-friendly carousel for mobile
+        function initTouchCarousel() {
+            const carouselTrack = document.querySelector('.carousel-track');
+            if (!carouselTrack) return;
+            
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+            
+            carouselTrack.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            
+            carouselTrack.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+                const diff = startX - currentX;
                 
-                response += "💡 **Market Insight**: Pool villas in Al Mouj and Qurum have appreciated 12% this year. Perfect timing for investment!\n\n";
-                response += "Would you like me to arrange viewings or discuss financing options?";
+                // Prevent vertical scrolling when horizontally swiping
+                if (Math.abs(diff) > 10) {
+                    e.preventDefault();
+                }
+            });
+            
+            carouselTrack.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
                 
-            } else if (messageLower.includes('investment') || messageLower.includes('roi')) {
-                response += "💼 Smart investor! I've analyzed the current market for the best ROI opportunities:\n\n";
-                
-                const investmentProperties = [
-                    { type: "Villa Complex", location: "Al Khuwair", roi: "8.2%", price: "OMR 385,000", link: "https://aqariq.com/investment/complex-001" },
-                    { type: "Commercial Plot", location: "Bousher", roi: "9.5%", price: "OMR 290,000", link: "https://aqariq.com/investment/commercial-001" },
-                    { type: "Apartment Building", location: "Qurum", roi: "7.8%", price: "OMR 450,000", link: "https://aqariq.com/investment/building-001" }
-                ];
-                
-                investmentProperties.forEach(prop => {
-                    response += `📈 **${prop.type}** - ${prop.location}\n`;
-                    response += `🎯 Expected ROI: ${prop.roi} annually\n`;
-                    response += `💰 Investment: ${prop.price}\n`;
-                    response += `🔗 Analysis: ${prop.link}\n\n`;
-                });
-                
-                response += "📊 **Market Analysis**: Rental demand up 15% this quarter. Prime time for property investment!\n\n";
-                response += "Would you like detailed financial projections for any of these opportunities?";
-                
-            } else if (messageLower.includes('budget') || messageLower.includes('under')) {
-                const budgetMatch = messageLower.match(/(?:budget|under) (?:omr )?(\d+)/);
-                const budget = budgetMatch ? parseInt(budgetMatch[1]) * 1000 : 300000;
-                
-                response += `💰 I understand your budget is OMR ${budget.toLocaleString()}. Let me be honest about the Muscat property market:\n\n`;
-                
-                if (budget < 200000) {
-                    response += `🏠 **Villa Reality Check**: Traditional villas in Muscat typically start from OMR 300,000+. However, here are some realistic alternatives within your budget:\n\n`;
-                    
-                    // Get actual properties within budget
-                    const budgetProperties = getPropertiesInBudget(budget);
-                    
-                    if (budgetProperties.length > 0) {
-                        response += `🏢 **Available Properties Within Budget**:\n\n`;
-                        budgetProperties.forEach(prop => {
-                            response += `🏠 **${prop.title}**\n`;
-                            response += `📍 ${prop.location} • ${prop.beds} bed • ${prop.area}m²\n`;
-                            response += `💰 ${prop.currency} ${prop.price.toLocaleString()}\n`;
-                            response += `✨ ${prop.features.join(', ')}\n`;
-                            response += `🔗 View Details: ${prop.link}\n`;
-                            response += `📞 Contact Agent: ${prop.contactLink}\n`;
-                            response += `📅 Schedule Viewing: ${prop.scheduleLink}\n\n`;
-                        });
+                const diff = startX - currentX;
+                if (Math.abs(diff) > 50) { // Minimum swipe distance
+                    if (diff > 0) {
+                        // Swipe left - next slide
+                        simulateClick(document.querySelector('.carousel-next'));
                     } else {
-                        response += `🏢 **Closest Matches**:\n\n`;
-                        const closestMatch1 = getPropertiesInBudget(120000)[0]; // Get closest property
-                        if (closestMatch1) {
-                            response += `• **${closestMatch1.title}**\n`;
-                            response += `📍 ${closestMatch1.location} • ${closestMatch1.currency} ${closestMatch1.price.toLocaleString()}\n`;
-                            response += `🔗 ${closestMatch1.link}\n\n`;
-                        }
+                        // Swipe right - previous slide
+                        simulateClick(document.querySelector('.carousel-prev'));
                     }
-                    
-                    response += `🏗️ **Build Your Own Villa Option**:\n`;
-                    const landOptions = getPropertiesInBudget(budget, 'land');
-                    if (landOptions.length > 0) {
-                        const land = landOptions[0];
-                        response += `• ${land.title} - ${land.location}: ${land.currency} ${land.price.toLocaleString()}\n`;
-                        response += `• ${land.area}m² ready for construction\n`;
-                        response += `🔗 ${land.link}\n\n`;
-                    }
-                    
-                    response += `💡 **Smart Alternative**: Buy land now (OMR 85k) + build in phases. Total villa cost: OMR 200-250k over 2-3 years.\n\n`;
-                    
-                    response += `📞 Would you like to explore financing options to increase your budget or see more details about any of these properties?`;
-                } else {
-                    const affordableProps = getAllProperties().filter(p => p.price <= budget);
-                    response += `Here are properties within OMR ${budget.toLocaleString()}:\n\n`;
-                    
-                    affordableProps.slice(0, 3).forEach(prop => {
-                        response += `🏠 **${prop.title}**\n`;
-                        response += `📍 ${prop.location} • OMR ${prop.price.toLocaleString()}\n`;
-                        response += `🔗 View: ${prop.link}\n\n`;
-                    });
-                    
-                    response += "💡 **Financing Tip**: With 20% down payment, monthly installments start from OMR 800!\n\n";
-                    response += "Shall I connect you with our mortgage specialist for pre-approval?";
                 }
                 
-            } else {
-                // General intelligent response
-                response += generateIntelligentResponse(messageLower, relevantProperties, marketInsights);
-            }
-
-            return response;
-        }
-
-        function generateIntelligentResponse(query, properties, insights) {
-            const responses = [
-                `🏠 I understand you're looking for property options. Based on current market trends, here are my recommendations:\n\n${formatPropertySample(properties)}\n\n💡 ${insights}\n\nWhat specific features are most important to you?`,
-                
-                `🌟 Excellent timing! The Omani real estate market is showing strong growth. Here's what I found:\n\n${formatPropertySample(properties)}\n\n📈 ${insights}\n\nWould you like me to schedule viewings for this weekend?`,
-                
-                `🔍 I've analyzed our database and found some perfect matches:\n\n${formatPropertySample(properties)}\n\n🎯 ${insights}\n\nShall we discuss financing options or arrange property tours?`
-            ];
+                isDragging = false;
+            });
             
-            return responses[Math.floor(Math.random() * responses.length)];
+            function simulateClick(element) {
+                if (element) {
+                    const event = new MouseEvent('click', {
+                        view: window,
+                        bubbles: true,
+                        cancelable: true
+                    });
+                    element.dispatchEvent(event);
+                }
+            }
         }
-
-        function formatPropertySample(properties) {
-            const sample = [...properties.villas, ...properties.apartments, ...properties.lands].slice(0, 2);
-            return sample.map(p => 
-                `🏠 **${p.title}** - ${p.location}\n💰 OMR ${p.price.toLocaleString()}\n🔗 ${p.link}`
-            ).join('\n\n');
+        
+        // Initialize touch carousel on mobile
+        if ('ontouchstart' in window) {
+            document.addEventListener('DOMContentLoaded', initTouchCarousel);
         }
-
-        function findRelevantProperties(query) {
-            const all = getAllProperties();
-            return {
-                villas: all.filter(p => 
-                    p.title.toLowerCase().includes('villa') && 
-                    (query.includes(p.location.toLowerCase()) || 
-                     p.features.some(f => query.includes(f.toLowerCase())))
-                ),
-                apartments: all.filter(p => 
-                    p.title.toLowerCase().includes('apartment') && 
-                    (query.includes(p.location.toLowerCase()) || 
-                     p.features.some(f => query.includes(f.toLowerCase())))
-                ),
-                lands: all.filter(p => 
-                    p.title.toLowerCase().includes('plot') || p.title.toLowerCase().includes('land')
-                )
-            };
+        
+        // Prevent zoom on double-tap (improves touch experience)
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+        
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Adjust AI chat interface for mobile
+        function adjustAIChatForMobile() {
+            const aiChat = document.getElementById('aiChatInterface');
+            if (!aiChat) return;
+            
+            if (window.innerWidth <= 768) {
+                aiChat.style.width = 'calc(100vw - 40px)';
+                aiChat.style.height = '70vh';
+                aiChat.style.right = '20px';
+                aiChat.style.bottom = '80px';
+            } else {
+                aiChat.style.width = '350px';
+                aiChat.style.height = '500px';
+                aiChat.style.right = '30px';
+                aiChat.style.bottom = '30px';
+            }
         }
-
-        function getMarketInsights(query) {
-            const insights = [
-                "Property values in premium areas have increased 8-12% this year",
-                "Rental demand is particularly strong in Al Mouj and Qurum areas",
-                "New infrastructure projects are boosting property values in Al Hail",
-                "Commercial properties near Muscat International Airport show excellent ROI",
-                "Waterfront properties continue to outperform the general market"
-            ];
-            return insights[Math.floor(Math.random() * insights.length)];
+        
+        window.addEventListener('resize', adjustAIChatForMobile);
+        document.addEventListener('DOMContentLoaded', adjustAIChatForMobile);
+        
+        // Your existing JavaScript code continues here
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Get selected interests
+            const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
+                .map(checkbox => checkbox.value);
+            
+            data.interests = interests;
+            
+            // Simple success message
+            alert('Thank you for your enquiry! We will get back to you soon.');
+            
+            // In a real application, you would send this data to your server
+            console.log('Form data:', data);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Toggle user dropdown
+        function toggleUserDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('show');
         }
-
-        function getAllProperties() {
-            return [...propertyDatabase.villas, ...propertyDatabase.apartments, ...propertyDatabase.lands];
-        }
-
-        function getTotalProperties() {
-            return getAllProperties().length;
-        }
-
-        // UI Functions
+        
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('userDropdown');
+            const userIcon = document.querySelector('.user-icon');
+            
+            if (dropdown.classList.contains('show') && e.target !== userIcon && !userIcon.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+        
+        // AI Assistant functionality
         function toggleAIChat() {
             const chatInterface = document.getElementById('aiChatInterface');
             chatInterface.classList.toggle('active');
         }
-
-        function toggleConfig() {
-            const config = document.getElementById('aiConfig');
-            config.classList.toggle('show');
-        }
-
-        function updateStatus(text, isOnline) {
-            const statusText = document.getElementById('statusText');
-            const statusDot = document.getElementById('statusDot');
-            
-            statusText.textContent = text;
-            statusDot.className = isOnline ? 'status-dot' : 'status-dot offline';
-        }
-
+        
         function handleEnterKey(event) {
             if (event.key === 'Enter' && !event.shiftKey) {
                 event.preventDefault();
                 sendMessage();
             }
         }
-
-        async function sendMessage() {
+        
+        function sendMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
-            const sendButton = document.getElementById('sendButton');
             
             if (message === '') return;
-
-            // Disable send button during processing
-            sendButton.disabled = true;
             
             // Add user message
             addMessage(message, 'user');
             input.value = '';
-
-            // Show typing indicator
-            showTypingIndicator();
-
-            try {
-                // Create context from recent messages
-                const context = buildContext();
-                
-                // Call AI service
-                const response = await callAI(message, context);
-                
-                // Hide typing indicator
-                hideTypingIndicator();
-                
-                // Add AI response
-                addMessage(response, 'bot');
-                
-            } catch (error) {
-                hideTypingIndicator();
-                addMessage(`I apologize, but I encountered an error: ${error.message}. Let me try to help you with our property database instead.`, 'bot', true);
-            } finally {
-                sendButton.disabled = false;
-            }
-        }
-
-        function buildContext() {
-            const messages = document.querySelectorAll('.ai-message');
-            const recentMessages = Array.from(messages)
-                .slice(-6) // Last 6 messages
-                .map(msg => {
-                    const role = msg.classList.contains('user') ? 'User' : 'Assistant';
-                    const contentEl = msg.querySelector('.ai-message-content');
-                    const content = contentEl ? contentEl.textContent : '';
-                    return `${role}: ${content}`;
-                })
-                .filter(msg => msg.trim() !== 'User: ' && msg.trim() !== 'Assistant: ') // Filter empty messages
-                .join('\n\n');
             
-            return `Recent conversation:\n${recentMessages}\n\nProperty Database Summary: ${getTotalProperties()} properties available including luxury villas, modern apartments, and investment lands across Muscat.`;
+            // Simulate AI response
+            setTimeout(() => {
+                addMessage("I'm a demo AI assistant. In a real implementation, I would connect to a real AI service to provide property recommendations and answer your questions.", 'bot');
+            }, 1000);
         }
-
-        function showTypingIndicator() {
-            const messagesContainer = document.getElementById('chatMessages');
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'ai-message bot';
-            typingDiv.id = 'typing-indicator';
-            
-            const avatar = document.createElement('div');
-            avatar.className = 'ai-message-avatar';
-            avatar.textContent = '🤖';
-            
-            const indicator = document.createElement('div');
-            indicator.className = 'typing-indicator show';
-            indicator.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
-            
-            typingDiv.appendChild(avatar);
-            typingDiv.appendChild(indicator);
-            messagesContainer.appendChild(typingDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
-        function hideTypingIndicator() {
-            const typingIndicator = document.getElementById('typing-indicator');
-            if (typingIndicator) {
-                typingIndicator.remove();
-            }
-        }
-
-        function addMessage(message, sender, isError = false) {
+        
+        function addMessage(message, sender) {
             const messagesContainer = document.getElementById('chatMessages');
             const messageDiv = document.createElement('div');
             messageDiv.className = `ai-message ${sender}`;
@@ -2819,16 +2779,8 @@ FORMAT RESPONSES:
             avatar.textContent = sender === 'bot' ? '🤖' : '👤';
             
             const content = document.createElement('div');
-            content.className = `ai-message-content ${isError ? 'error-message' : ''}`;
-            
-            // Convert URLs to clickable links and format markdown-style text
-            const formattedMessage = message
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold text
-                .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" class="property-link">View Details →</a>') // Links
-                .replace(/🔗 View Details: (https?:\/\/[^\s]+)/g, '🔗 <a href="$1" target="_blank" class="property-link">View Details →</a>') // Specific link format
-                .replace(/🔗 (.*?): (https?:\/\/[^\s]+)/g, '🔗 <a href="$2" target="_blank" class="property-link">$1 →</a>'); // Named links
-            
-            content.innerHTML = formattedMessage;
+            content.className = 'ai-message-content';
+            content.textContent = message;
             
             messageDiv.appendChild(avatar);
             messageDiv.appendChild(content);
@@ -2837,307 +2789,62 @@ FORMAT RESPONSES:
             // Scroll to bottom
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
-
-        // Configuration Management
-        function initializeConfig() {
-            const providerSelect = document.getElementById('aiProvider');
-            const apiKeyInput = document.getElementById('apiKey');
-            const modelSelect = document.getElementById('aiModel');
-            const temperatureSlider = document.getElementById('temperature');
-            const tempValue = document.getElementById('tempValue');
-
-            // Load saved config
-            const savedConfig = localStorage.getItem('aqariq-ai-config');
-            if (savedConfig) {
-                const config = JSON.parse(savedConfig);
-                Object.assign(aiConfig, config);
+        
+        // Initialize carousel with placeholder images
+        function initCarousel() {
+            const carouselTrack = document.querySelector('.carousel-track');
+            if (!carouselTrack) return;
+            
+            // Add slides to carousel
+            for (let i = 1; i <= 3; i++) {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
                 
-                providerSelect.value = aiConfig.provider;
-                apiKeyInput.value = aiConfig.apiKey;
-                modelSelect.value = aiConfig.model;
-                temperatureSlider.value = aiConfig.temperature;
-                tempValue.textContent = aiConfig.temperature;
+                const img = document.createElement('img');
+                img.src = `https://via.placeholder.com/800x500/8B6F47/FFFFFF?text=Property+${i}`;
+                img.alt = `Luxury Property ${i}`;
+                
+                slide.appendChild(img);
+                carouselTrack.appendChild(slide);
             }
-
-            // Event listeners for config changes
-            providerSelect.addEventListener('change', (e) => {
-                aiConfig.provider = e.target.value;
-                updateModelOptions();
-                saveConfig();
+            
+            // Set up carousel navigation
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const totalSlides = slides.length;
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
+            const progressBar = document.querySelector('.slider-progress-bar');
+            const sliderNumbers = document.querySelector('.slider-numbers');
+            
+            function updateSlider() {
+                carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+                progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+                sliderNumbers.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+            }
+            
+            prevButton.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
             });
-
-            apiKeyInput.addEventListener('change', (e) => {
-                aiConfig.apiKey = e.target.value;
-                saveConfig();
+            
+            nextButton.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
             });
-
-            modelSelect.addEventListener('change', (e) => {
-                aiConfig.model = e.target.value;
-                saveConfig();
-            });
-
-            temperatureSlider.addEventListener('input', (e) => {
-                aiConfig.temperature = parseFloat(e.target.value);
-                tempValue.textContent = aiConfig.temperature;
-                saveConfig();
-            });
-
-            updateModelOptions();
+            
+            // Auto-advance slides
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }, 5000);
+            
+            // Initialize slider
+            updateSlider();
         }
-
-        function updateModelOptions() {
-            const modelSelect = document.getElementById('aiModel');
-            modelSelect.innerHTML = '';
-
-            const modelOptions = {
-                'openai': ['gpt-4', 'gpt-4-turbo', 'gpt-3.5-turbo'],
-                'claude': ['claude-3-sonnet-20240229', 'claude-3-haiku-20240307', 'claude-3-opus-20240229'],
-                'gemini': ['gemini-pro', 'gemini-pro-vision'],
-                'local': ['mock-ai-v1']
-            };
-
-            const options = modelOptions[aiConfig.provider] || ['default'];
-            options.forEach(model => {
-                const option = document.createElement('option');
-                option.value = model;
-                option.textContent = model;
-                if (model === aiConfig.model) option.selected = true;
-                modelSelect.appendChild(option);
-            });
-        }
-
-        function saveConfig() {
-            localStorage.setItem('aqariq-ai-config', JSON.stringify(aiConfig));
-            
-            // Update status based on configuration
-            if (aiConfig.provider === 'local') {
-                updateStatus('Mock AI Ready', true);
-            } else if (aiConfig.apiKey) {
-                updateStatus('AI Configured', true);
-            } else {
-                updateStatus('API Key Required', false);
-            }
-        }
-
-        // Advanced AI Features
-        function analyzeUserIntent(message) {
-            const intents = {
-                search: /looking for|find|show me|search|need/i,
-                compare: /compare|vs|versus|difference|better/i,
-                budget: /budget|afford|price|cost|under|within/i,
-                investment: /investment|roi|return|profit|rental/i,
-                location: /area|location|where|near|close to/i,
-                financing: /finance|loan|mortgage|bank|payment/i,
-                schedule: /viewing|visit|see|appointment|schedule/i
-            };
-
-            const detectedIntents = [];
-            for (const [intent, pattern] of Object.entries(intents)) {
-                if (pattern.test(message)) {
-                    detectedIntents.push(intent);
-                }
-            }
-
-            return detectedIntents;
-        }
-
-        function extractEntities(message) {
-            const entities = {
-                propertyTypes: [],
-                locations: [],
-                priceRange: null,
-                bedrooms: null,
-                features: []
-            };
-
-            // Property types
-            const propertyPatterns = {
-                villa: /villa|house|home/i,
-                apartment: /apartment|flat|condo/i,
-                land: /land|plot|site/i
-            };
-
-            for (const [type, pattern] of Object.entries(propertyPatterns)) {
-                if (pattern.test(message)) {
-                    entities.propertyTypes.push(type);
-                }
-            }
-
-            // Locations
-            const locations = ['al mouj', 'qurum', 'al khuwair', 'al hail', 'bousher', 'muscat', 'seeb'];
-            entities.locations = locations.filter(loc => 
-                message.toLowerCase().includes(loc)
-            );
-
-            // Price range
-            const priceMatch = message.match(/under (?:omr )?(\d+)/i);
-            if (priceMatch) {
-                entities.priceRange = {
-                    max: parseInt(priceMatch[1]) * 1000
-                };
-            }
-
-            // Bedrooms
-            const bedroomMatch = message.match(/(\d+)\s*(?:bed|bedroom)/i);
-            if (bedroomMatch) {
-                entities.bedrooms = parseInt(bedroomMatch[1]);
-            }
-
-            // Features
-            const featurePatterns = ['pool', 'garden', 'gym', 'parking', 'balcony', 'sea view', 'furnished'];
-            entities.features = featurePatterns.filter(feature => 
-                message.toLowerCase().includes(feature)
-            );
-
-            return entities;
-        }
-
-        // Error Handling and Fallbacks
-        function handleAIError(error, userMessage) {
-            console.error('AI Service Error:', error);
-            
-            const fallbackResponse = `I apologize for the technical difficulty. Let me help you using our property database:\n\n${generateFallbackResponse(userMessage)}`;
-            
-            return fallbackResponse;
-        }
-
-        function generateFallbackResponse(message) {
-            const entities = extractEntities(message);
-            const intents = analyzeUserIntent(message);
-            
-            let response = '';
-            
-            if (intents.includes('search')) {
-                response += 'Here are some properties that might interest you:\n\n';
-                const sample = getAllProperties().slice(0, 3);
-                sample.forEach(prop => {
-                    response += `🏠 ${prop.title} - ${prop.location}\n💰 OMR ${prop.price.toLocaleString()}\n🔗 ${prop.link}\n\n`;
-                });
-            } else if (intents.includes('investment')) {
-                response += 'Investment opportunities in Oman are excellent right now. Would you like me to show you high-ROI properties?';
-            } else {
-                response += 'I\'d be happy to help you find the perfect property. What are you looking for specifically?';
-            }
-            
-            return response;
-        }
-
-        // Performance Monitoring
-        function trackAIPerformance(startTime, provider, success) {
-            const endTime = Date.now();
-            const duration = endTime - startTime;
-            
-            const performanceData = {
-                timestamp: new Date().toISOString(),
-                provider: provider,
-                duration: duration,
-                success: success
-            };
-            
-            // Store performance metrics (in a real app, send to analytics)
-            const metrics = JSON.parse(localStorage.getItem('ai-performance') || '[]');
-            metrics.push(performanceData);
-            
-            // Keep only last 100 entries
-            if (metrics.length > 100) {
-                metrics.splice(0, metrics.length - 100);
-            }
-            
-            localStorage.setItem('ai-performance', JSON.stringify(metrics));
-        }
-
-        // Initialize the application
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeConfig();
-            
-            // Add welcome message for demo
-            setTimeout(() => {
-                addMessage("🚀 AI system initialized! I can now provide intelligent property recommendations, market analysis, and personalized assistance. Try asking me something like:\n\n• \"Show me villas with pools under OMR 500k\"\n• \"What's the ROI on investment properties?\"\n• \"Compare apartments in Al Mouj vs Qurum\"\n\nWhat would you like to know?", 'bot');
-            }, 1000);
-        });
-
-        // Export functions for external use (if needed)
-        window.AqariqAI = {
-            sendMessage,
-            callAI,
-            propertyDatabase,
-            aiConfig
-        };
+        
+        // Initialize the carousel when the page loads
+        document.addEventListener('DOMContentLoaded', initCarousel);
     </script>
-
- <!-- Footer -->
-<footer> 
-  <div class="footer-container">
-    
-    <!-- Decorations -->
-    <div class="footer-decoration decoration-1"></div>
-    <div class="footer-decoration decoration-2"></div>
-    <div class="footer-decoration decoration-3"></div>
-    <div class="footer-decoration decoration-4"></div>
-
-    <!-- Main Footer Content -->
-    <div class="footer-content">
-      <!-- Left: Logo -->
-      <div class="footer-logo">
-  <div class="footer-logo-wrapper">
-    <div class="footer-logo-img">
-      <img src="images/logo.png" alt="AqariQ Logo">
-    </div>
-    <div class="footer-logo-text">
-      <div class="footer-logo-main">AqariQ</div>
-      <div class="footer-logo-sub">Where Ownership Starts</div>
-    </div>
-  </div>
-</div>
-
-      <!-- Right: Menu + Contact + Social -->
-      <div class="footer-right">
-        <div class="footer-section">
-         
-    <div class="footer-section-title">Menu</div>
-    <div class="footer-section-content">
-      <div onclick="location.href='home.html'">Home</div>
-      <div onclick="location.href='Finding_land/index.html'">Lands</div>
-      <div onclick="location.href='Finding_property/index.html'">Properties</div>
-      <div onclick="location.href='home.html#gallery'">Gallery</div>
-      <div onclick="location.href='AboutUs.html'">About us</div>
-      <div onclick="location.href='blog.html'">Blogs</div>
-      <div onclick="location.href='membership.html'">Membership</div>
-      <div onclick="location.href='faq.html'">FAQs</div>
-    </div>
-  </div>
-
-
-        <div class="footer-section">
-          <div class="footer-section-title">Contact</div>
-          <div class="footer-section-content">
-            <div>AqariQ25@gmail.com</div>
-            <div>+968 77272442</div>
-            <div>Muscat, Oman</div>
-            <div>https://helpdesk.com</div>
-          </div>
-        </div>
-
-        <div class="footer-section">
-          <div class="footer-section-title">Social</div>
-          <div class="social-icons">
-            <div class="social-icon">f</div>
-            <div class="social-icon">t</div>
-            <div class="social-icon">in</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom -->
-    <div class="footer-bottom-section">
-      <div class="footer-bottom-left">Copyright © Dotcreativemarket</div>
-      <div class="footer-bottom-center">Terms of Use</div>
-      <div class="footer-bottom-right">Privacy Policy</div>
-    </div>
-  </div>
-</footer>
-
-
-
- <script src="scrolling.js"></script>
+</body>
+</html>
