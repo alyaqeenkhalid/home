@@ -671,41 +671,8 @@ a.btn {
     top: 0;
     left: 0;
 }
-.image-carousel {
-    position: relative;
-    width: 100%;
-    height: 426px;
-    border-radius: 50px;
-    overflow: hidden; /* Ensures no content spills out */
-}
 
-.carousel-track {
-    display: flex;
-    height: 100%;
-    transition: transform 0.5s ease;
-    will-change: transform;
-}
-
-.carousel-slide {
-    min-width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden; /* Added this */
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scaleX(-1);
-    display: block;
-    position: absolute; /* Added this */
-    top: 0;
-    left: 0;
-}
-       
-        /* Featured Properties Section */
+       /* Featured Properties Section */
         .featured {
             padding: 100px 0;
             position: relative;
@@ -717,7 +684,6 @@ a.btn {
             padding: 0 20px;
         }
         
-        .feature极速飞艇
         .featured-card {
             display: flex;
             background-color: white; /* White card background */
@@ -742,7 +708,6 @@ a.btn {
             line-height: 1.3;
         }
         
-        .极速飞艇
         .featured-content p {
             font-size: 25px;
             color: #8B8680; /* Updated color */
@@ -751,7 +716,6 @@ a.btn {
         }
         
         .featured-image {
-            flex: 极速飞艇
             flex: 1;
             position: relative;
         }
@@ -792,7 +756,6 @@ a.btn {
 /* Stats Section */
 .stats {
   background-color: #8B6F47; /* Updated color */
-  padding: 120极速飞艇
   padding: 120px 0;
   color: white;
 }
@@ -807,7 +770,6 @@ a.btn {
 .stats-text p {
   font-size: 20px; /* Increased from 18px */
   line-height: 1.6;
-  opacity: 极速飞艇
   opacity: 0.9;
   max-width: 500px;
 }
@@ -845,7 +807,6 @@ a.btn {
   bottom: 0;
   width: 100%;
   height: 80%; /* Adjust height as needed */
-  border-radius: 0 50极速飞艇
   border-radius: 0 50px 50px 0;
   overflow: hidden;
 }
@@ -893,7 +854,6 @@ a.btn {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 8极速飞艇
   margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
@@ -935,7 +895,6 @@ a.btn {
     font-weight: 700;
     color: #3A3A3A; /* Updated color */
     text-transform: uppercase;
-    line极速飞艇
     line-height: 1.2;
     margin-left: 100px; /* Push right by adding left margin */
     flex: 1;
@@ -970,7 +929,6 @@ a.btn {
 }
 
 .feature-icon img {
-    width: 60极速飞艇
     width: 60px; /* Set your desired small size */
     height: 60px;
     display: block; /* Remove inline spacing */
@@ -1032,8 +990,15 @@ a.btn {
         }
         
         .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(139, 111, 71, 0.3);
+        }
+        
+        .gallery-item .img-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
         }
         
         .gallery-item img {
@@ -1044,51 +1009,7 @@ a.btn {
         }
         
         .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            padding: 30px;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            transform: translateY(20px);
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .gallery-overlay h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .gallery-overlay p {
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-        
-        .view-property-btn {
-            background: #8B6F47;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-        
-        .view-property-btn:hover {
-            background: #6B5435;
+            transform: scale(1.1);
         }
         
   /* Contact Form Container */
@@ -1110,7 +1031,6 @@ a.btn {
 
         .contact-image-section {
             flex: 1;
-            background: linear-gradient(135极速飞艇
             background: linear-gradient(135deg, #8B6F47 0%, #c3a87a 100%);
             display: flex;
             justify-content: center;
@@ -1122,9 +1042,7 @@ a.btn {
         .image-placeholder {
             width: 100%;
             height: 100%;
-            max-height: 500极速飞艇
             max-height: 500px;
-            background-color: rgba(255, 255, 255, 极速飞艇
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             display: flex;
@@ -1181,7 +1099,6 @@ a.btn {
             display: block;
             font-size: 10px;
             font-weight: 300;
-            color: #8极速飞艇
             color: #8B8680;
             margin-bottom: 8px;
         }
@@ -1217,7 +1134,6 @@ a.btn {
         }
 
         .checkbox-option {
-            display:极速飞艇
             display: flex;
             align-items: center;
             gap: 8px;
@@ -1244,25 +1160,6 @@ a.btn {
             color: #8B6F47;
         }
 
-        .main-btn {
-            background: #8B6极速飞艇
-            background: #8B6F47;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-
-        .main-btn:hover {
-            background: #7A5F3F;
-            transform: translateY(-2px);
-        }
-
         /* Responsive Design */
         @media (max-width: 1024px) {
             .contact-container-wrapper {
@@ -1282,7 +1179,6 @@ a.btn {
 
         @media (max-width: 768px) {
             .contact-form {
-                grid-template-column极速飞艇
                 grid-template-columns: 1fr;
             }
             
@@ -1292,7 +1188,6 @@ a.btn {
             }
             
             .contact-form-section {
-                padding: 30极速飞艇
                 padding: 30px 20px;
             }
             
@@ -1332,14 +1227,12 @@ a.btn {
             border-radius: 50%;
             background: linear-gradient(135deg, #8B6F47 0%, #6B5435 100%);
             border: none;
-            box-shadow: 极速飞艇
             box-shadow: 0 8px 25px rgba(139, 111, 71, 0.4);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            animation: pulse 2极速飞艇
             animation: pulse 2s infinite;
         }
 
@@ -1359,7 +1252,6 @@ a.btn {
                 box-shadow: 0 8px 25px rgba(139, 111, 71, 0.4);
             }
             50% {
-                box-shadow: 0 8极速飞艇
                 box-shadow: 0 8px 25px rgba(139, 111, 71, 0.4), 0 0 0 15px rgba(139, 111, 71, 0.1);
             }
             100% {
@@ -1384,7 +1276,6 @@ a.btn {
             border: 1px solid rgba(139, 111, 71, 0.2);
         }
 
-        .ai极速飞艇
         .ai-chat-interface.active {
             display: flex;
             animation: slideUp 0.3s ease-out;
@@ -1402,8 +1293,6 @@ a.btn {
         }
 
         .ai-chat-header {
-            background: linear-gradient(135deg, #8B6F47 0%, #6B5435 极速飞艇
-            background: linear-gradient(135deg, #极速飞艇
             background: linear-gradient(135deg, #8B6F47 0%, #6B5435 100%);
             padding: 20px;
             color: white;
@@ -1426,11 +1315,8 @@ a.btn {
             cursor: pointer;
             padding: 0;
             width: 30px;
-           极速飞艇
-            width: 30px;
             height: 30px;
             border-radius: 50%;
-            display:极速飞艇
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1485,8 +1371,6 @@ a.btn {
             background: white;
             padding: 12px 16px;
             border-radius: 15px;
-           极速飞艇
-            border-radius: 15px;
             max-width: 70%;
             font-size: 14px;
             line-height: 1.4;
@@ -1498,10 +1382,8 @@ a.btn {
             color: white;
         }
 
-        .ai极速飞艇
         .ai-chat-input {
             padding: 20px;
-            border-top: 1px极速飞艇
             border-top: 1px solid rgba(139, 111, 71, 0.2);
             display: flex;
             gap: 10px;
@@ -1531,7 +1413,6 @@ a.btn {
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: background 0.极速飞艇
             transition: background 0.3s;
         }
 
@@ -1585,8 +1466,6 @@ a.btn {
                 height: 60px;
             }
 
-            .ai-assistant-btn sv极速飞艇
-            .ai极速飞艇
             .ai-assistant-btn svg {
                 width: 28px;
                 height: 28px;
@@ -1605,7 +1484,6 @@ a.btn {
        /* Footer Styles - Updated with new palette */
 .footer-container {
     background: linear-gradient(135deg, #3A3A3A 0%, #2A2A2A 100%);
-    color: #F5极速飞艇
     color: #F5F3F0;
     padding: 40px 10% 30px;
     margin-top: auto;
@@ -1656,12 +1534,10 @@ a.btn {
 
 
 .decoration-4 {
-    width: 574极速飞艇
     width: 574px;
     height: 517px;
     right: -150px;
     top: -290.2px;
-    background-image: url('极速飞艇
     background-image: url('images/v127_616.png');
     /* background: radial-gradient(circle, #8B8680 0%, transparent 60%); */
     transform: rotate(-10deg);
@@ -1706,7 +1582,6 @@ a.btn {
     color: #D4B896;
 }
 
-.footer极速飞艇
 .footer-logo-sub {
     font-weight: 400;
     font-size: 16px;
@@ -1726,8 +1601,6 @@ a.btn {
 
 .footer-section-title {
     font-weight: 600;
-   极速飞艇
-    font-weight: 600;
     font-size: 16px;
     margin-bottom: 20px;
     color: #D4B896;
@@ -1735,10 +1608,7 @@ a.btn {
 
 .footer-section-content {
     font-weight: 400;
-    font-size: 13极速飞艇
     font-size: 13px;
-    line-height: 1.8;
-   极速飞艇
     line-height: 1.8;
     color: #F5F3F0;
 }
@@ -1870,7 +1740,6 @@ a.btn {
 
 @media (max-width: 480px) {
     .footer-container {
-        padding: 40极速飞艇
         padding: 40px 5% 20px;
     }
     
@@ -1907,7 +1776,6 @@ a.btn {
   <!-- Header -->
     <header class="header">
       <div class="header-left">
-       
         <div class="logo">
             <div class="logo-main">AqariQ</div>
             <div class="logo-sub">Where Ownership Starts</div>
@@ -1951,8 +1819,6 @@ a.btn {
         </div>
     </header>
 
-
-
     <!-- Hero Section with Carousel -->
 <section class="hero">
     <div class="hero-container">
@@ -1960,7 +1826,6 @@ a.btn {
             <h2>FROM OPEN PLOTS TO ELEGANT VILLAS EVERY THING HERE IS READY, REGISTERED, AND REAL.</h2>
             <p>A trusted platform for buying land, villas, and flats all officially approved by the Ministry of Housing and Urban Planning. Explore verified properties, complete transactions confidently, and secure your space with ease.</p>
             
-            <div class极速飞艇
             <div class="hero-buttons">
                 <a href="Finding_land/index.html" class="main-btn">View lands</a>
     <a href="Finding_property/index.html" class="main-btn">View built properties</a>
@@ -2002,7 +1867,6 @@ a.btn {
                         <img src="images/Picture 3.png" alt="Luxury Villa">
                     </div>
                     <div class="featured-small-image">
-                        <img src="极速飞艇
                         <img src="images/Picture 2.png" alt="Villa Detail">
                     </div>
                 </div>
@@ -2012,7 +1876,6 @@ a.btn {
                 <div class="featured-content">
                     <h3>FROM SMART INVESTMENTS TO READY HOMES BUILD YOUR FUTURE WITH VERIFIED PROPERTIES</h3>
                     <p>Discover profitable real estate opportunities, from rental-ready villas to high-return land plots all 100% legal and instantly transferable.</p>
-                    <a href="investment.html"极速飞艇
                     <a href="investment.html" class="main-btn">explore investment</a>
                 </div>
                 
@@ -2046,7 +1909,6 @@ a.btn {
     
     <!-- Right Column (Stats List) -->
     <div class="stats-list">
-      <极速飞艇
       <div class="stat-item">
         <span class="stat-number">01</span>
         <div class="stat-info">
@@ -2057,7 +1919,6 @@ a.btn {
       <div class="stat-item">
         <span class="stat-number">02</span>
         <div class="stat-info">
-          <h4>YEAR OF CONSTRUCTION</极速飞艇
           <h4>YEAR OF CONSTRUCTION</h4>
           <p>2025</p>
         </div>
@@ -2075,7 +1936,6 @@ a.btn {
           <h4>AVERAGE VILLA PRICE</h4>
           <p>7,987,297.30 USD</p>
         </div>
-      </极速飞艇
       </div>
     </div>
   </div>
@@ -2090,7 +1950,6 @@ a.btn {
             </div>
             
             <div class="why-us-content">
-                <极速飞艇
                 <p>At AqariQ, we go beyond property listings we offer expert guidance backed by deep local knowledge and years of experience.</p>
                 
                 <div class="features-grid">
@@ -2127,7 +1986,6 @@ a.btn {
                         </div>
                         <div class="feature-text">
                             <h3>Passionate professionals with strong market insight.</h3>
-                        </极速飞艇
                         </div>
                     </div>
                 </div>
@@ -2147,54 +2005,34 @@ a.btn {
             </div>
             
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="window.location.href='Finding_property/index.html'">
-                    <img src="images/Picture 8.png" alt="Luxury Villa in Al Mouj">
-                    <div class="gallery-overlay">
-                        <h3>Luxury Villa in Al Mouj</h3>
-                        <p>4 bedrooms, 5 bathrooms, private pool, sea view</p>
-                        <button class="view-property-btn">View Property</button>
+                <div class="gallery-item" onclick="navigateToProperty('luxury-villa-al-mouj')">
+                    <div class="img-container">
+                        <img src="images/Picture 8.png" alt="Gallery Image 1">
                     </div>
                 </div>
-                <div class="gallery-item" onclick="window.location.href='Finding_property/index.html'">
-                    <img src="images/Picture 9.png" alt="Modern Family Villa">
-                    <div class="gallery-overlay">
-                        <h3>Modern Family Villa</h3>
-                        <p>5 bedrooms, garden, pool, near schools</p>
-                        <button class="view-property-btn">View Property</button>
+                <div class="gallery-item" onclick="navigateToProperty('modern-family-villa')">
+                    <div class="img-container">
+                        <img src="images/Picture 9.png" alt="Gallery Image 2">
                     </div>
                 </div>
-                <div class="gallery-item" onclick="window.location.href='Finding_property/index.html'">
-                    <img src="images/Picture 10极速飞艇
-                    <img src="images/Picture 10.png" alt="Investment Villa">
-                    <div class="gallery-overlay">
-                        <h3>Investment Villa</h3>
-                        <p>3 bedrooms, rental ready, excellent ROI</p>
-                        <button class="view-property-btn">View Property</button>
+                <div class="gallery-item" onclick="navigateToProperty('investment-villa')">
+                    <div class="img-container">
+                        <img src="images/Picture 10.png" alt="Gallery Image 3">
                     </div>
                 </div>
-                <div class="gallery-item" onclick="window.location.href='Finding_property/index.html'">
-                    <img src="images/Picture 11.png" alt="Premium Apartment">
-                    <div class="gallery-overlay">
-                        <h3>Premium Apartment</h3>
-                        <p>2 bedrooms, city view, gym, pool access</p>
-                        <button class="view-property-btn">View Property</button>
+                <div class="gallery-item" onclick="navigateToProperty('premium-apartment')">
+                    <div class="img-container">
+                        <img src="images/Picture 11.png" alt="Gallery Image 4">
                     </div>
                 </div>
-                <div class="gallery-item" onclick="window.location.href='Finding_land/index.html'">
-                    <img src="images/Picture 12.png" alt="Residential Plot">
-                    <div class="gallery-overlay">
-                        <h3>Residential Plot</h3>
-                        <p>600m², approved, ready to build</p>
-                        <button class="view-property-btn">View Property</button>
+                <div class="gallery-item" onclick="navigateToProperty('residential-plot')">
+                    <div class="img-container">
+                        <img src="images/Picture 12.png" alt="Gallery Image 5">
                     </div>
                 </div>
-                <div class="gallery-item" onclick="window.location.href='Finding_land/index.html'">
-                    <img src="images/Picture 13.png" alt="Investment Land">
-                    <div class="gallery-overlay">
-                        <h3>Investment Land</h3>
-                        <p>800m², commercial potential, main road access</极速飞艇
-                        <p>800m², commercial potential, main road access</p>
-                        <button class="view-property-btn">View Property</button>
+                <div class="gallery-item" onclick="navigateToProperty('investment-land')">
+                    <div class="img-container">
+                        <img src="images/Picture 13.png" alt="Gallery Image 6">
                     </div>
                 </div>
             </div>
@@ -2240,7 +2078,6 @@ a.btn {
                                 <label for="interest-general">Following for general interests</label>
                             </div>
                             <div class="checkbox-option">
-                                <input type="checkbox" id="interest-buying" name="interest极速飞艇
                                 <input type="checkbox" id="interest-buying" name="interest" value="buying">
                                 <label for="interest-buying">Interested in buying a home</label>
                             </div>
@@ -2266,17 +2103,35 @@ a.btn {
         </div>
     </div>
 
+    <script>
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Get selected interests
+            const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
+                .map(checkbox => checkbox.value);
+            
+            data.interests = interests;
+            
+            // Simple success message
+            alert('Thank you for your enquiry! We will get back to you soon.');
+            
+            // In a real application, you would send this data to your server
+            console.log('Form data:', data);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
   <!-- AI Assistant HTML -->
    <div class="ai-assistant">
     <button class="ai-assistant-btn" onclick="toggleAIChat()">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V7.5C15 8.8 13.8 10 12.5 10H11.5C10.2 10 9 8.8 9 7.5V6.5L3 极速飞艇
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 极速飞艇
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V7.5C15 8.8 13.8 10 12.5 10H11.5C10.2 10 9 8.8 9 7.5V6.5L3 7V9C3 10.1 3.9 11 5 11V13.5C5 15.4 6.6 17 8.5 17H15.5C17.4 17 19 15.4 19 13.5V11C20.1 11 21 极速飞艇
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.极速飞艇
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V7.5C15 8.8 13.8 10 12.5 10H11.5C10.2 10 9 8.8 9 7.5V6.5L3 7V9C3 10.1 3.9 11 5 11V13.5C5 15.4 6.6 17 8.5 极速飞艇
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V7极速飞艇
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C极速飞艇
             <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V7.5C15 8.8 13.8 10 12.5 10H11.5C10.2 10 9 8.8 9 7.5V6.5L3 7V9C3 10.1 3.9 11 5 11V13.5C5 15.4 6.6 17 8.5 17H15.5C17.4 17 19 15.4 19 13.5V11C20.1 11 21 10.1 21 9ZM7.5 12C7.5 11.2 8.2 10.5 9 10.5S10.5 11.2 10.5 12S9.8 13.5 9 13.5S7.5 12.8 7.5 12ZM13.5 12C13.5 11.2 14.2 10.5 15 10.5S16.5 11.2 16.5 12S15.8 13.5 15 13.5S13.5 12.8 13.5 12Z"/>
         </svg>
     </button>
@@ -2285,20 +2140,16 @@ a.btn {
     <div class="ai-chat-interface" id="aiChatInterface">
         <div class="ai-chat-header">
             <div>
-                <h3>AqariQ AI Assistant</极速飞艇
-                <h3>Aqari极速飞艇
                 <h3>AqariQ AI Assistant</h3>
                 <div class="ai-status">
                     <div class="status-dot" id="statusDot"></div>
                     <span id="statusText">AI Online</span>
                 </div>
             </div>
-            <button class="极速飞艇
             <button class="ai-chat-close" onclick="toggleAIChat()">×</button>
         </div>
         
         <div class="ai-chat-messages" id="chatMessages">
-            <div class="ai极速飞艇
             <div class="ai-message bot">
                 <div class="ai-message-avatar">🤖</div>
                 <div class="ai-message-content">
@@ -2310,13 +2161,909 @@ a.btn {
         <div class="ai-chat-input">
             <input type="text" id="chatInput" placeholder="Ask me anything about properties in Oman..." onkeypress="handleEnterKey(event)">
             <button class="ai-chat-send" id="sendButton" onclick="sendMessage()">
-                <svg viewBox="0 极速飞艇
                 <svg viewBox="0 0 24 24">
                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
                 </svg>
             </button>
         </div>
     </div>
+
+    <script>
+        // AI Configuration
+        const aiConfig = {
+            provider: 'local', // Default to local/mock for demo
+            apiKey: '',
+            model: 'gpt-4',
+            temperature: 0.7,
+            maxTokens: 1000
+        };
+
+        // Real Property Database with AqariQ Website Links
+        const propertyDatabase = {
+            villas: [
+                {
+                    id: "VIL001",
+                    title: "Luxury Seaview Villa",
+                    location: "Al Mouj",
+                    price: 479850,
+                    currency: "OMR",
+                    beds: 4,
+                    baths: 5,
+                    area: 450,
+                    features: ["Private Pool", "Sea View", "Marina Access", "Garden", "Maid Room"],
+                    description: "Stunning waterfront villa with panoramic sea views and direct marina access",
+                    slug: "luxury-seaview-villa-al-mouj",
+                    coordinates: { lat: 23.6345, lng: 58.1500 },
+                    yearBuilt: 2020,
+                    parking: 3,
+                    furnished: true,
+                    available: true
+                },
+                {
+                    id: "VIL002",
+                    title: "Modern Family Villa",
+                    location: "Qurum",
+                    price: 450125,
+                    currency: "OMR",
+                    beds: 5,
+                    baths: 4,
+                    area: 380,
+                    features: ["Garden", "Pool", "Near Schools", "Gym Room"],
+                    description: "Perfect family home in prestigious Qurum with excellent school access",
+                    slug: "modern-family-villa-qurum",
+                    coordinates: { lat: 23.5928, lng: 58.4107 },
+                    yearBuilt: 2019,
+                    parking: 2,
+                    furnished: false,
+                    available: true
+                },
+                {
+                    id: "VIL003",
+                    title: "Investment Villa",
+                    location: "Al Khuwair",
+                    price: 385000,
+                    currency: "OMR",
+                    beds: 3,
+                    baths: 3,
+                    area: 320,
+                    features: ["Rental Ready", "Good ROI", "Central Location", "Furnished"],
+                    description: "Excellent investment property with guaranteed rental income",
+                    slug: "investment-villa-al-khuwair",
+                    coordinates: { lat: 23.5841, lng: 58.4059 },
+                    yearBuilt: 2018,
+                    parking: 2,
+                    furnished: true,
+                    available: true
+                }
+            ],
+            apartments: [
+                {
+                    id: "APT001",
+                    title: "Premium 2BR Apartment",
+                    location: "Qurum Heights",
+                    price: 165000,
+                    currency: "OMR",
+                    beds: 2,
+                    baths: 2,
+                    area: 120,
+                    features: ["City View", "Gym", "Pool", "Balcony"],
+                    description: "Modern apartment with stunning city views and premium amenities",
+                    slug: "premium-2br-apartment-qurum-heights",
+                    coordinates: { lat: 23.5978, lng: 58.4117 },
+                    yearBuilt: 2021,
+                    parking: 1,
+                    furnished: true,
+                    available: true
+                },
+                {
+                    id: "APT002",
+                    title: "Affordable 1BR Flat",
+                    location: "Ruwi",
+                    price: 75000,
+                    currency: "OMR",
+                    beds: 1,
+                    baths: 1,
+                    area: 65,
+                    features: ["Central Location", "Near Metro", "Furnished", "Ready"],
+                    description: "Perfect starter home in the heart of Muscat's business district",
+                    slug: "affordable-1br-flat-ruwi",
+                    coordinates: { lat: 23.5859, lng: 58.5931 },
+                    yearBuilt: 2017,
+                    parking: 1,
+                    furnished: true,
+                    available: true
+                },
+                {
+                    id: "APT003",
+                    title: "Budget 2BR Apartment",
+                    location: "Al Khuwair",
+                    price: 95000,
+                    currency: "OMR",
+                    beds: 2,
+                    baths: 2,
+                    area: 85,
+                    features: ["Spacious", "Family Friendly", "Parking", "Balcony"],
+                    description: "Great value family apartment in popular Al Khuwair area",
+                    slug: "budget-2br-apartment-al-khuwair",
+                    coordinates: { lat: 23.5841, lng: 58.4059 },
+                    yearBuilt: 2016,
+                    parking: 1,
+                    furnished: false,
+                    available: true
+                }
+            ],
+            lands: [
+                {
+                    id: "LND001",
+                    title: "Residential Plot - Build Your Dream Villa",
+                    location: "Al Hail",
+                    price: 85000,
+                    currency: "OMR",
+                    area: 600,
+                    features: ["Approved", "Residential", "Ready to Build", "Corner Plot"],
+                    description: "Prime residential plot ready for immediate development - perfect for building your own villa",
+                    slug: "residential-plot-build-dream-villa-al-hail",
+                    coordinates: { lat: 23.6234, lng: 58.4567 },
+                    buildingPermit: true,
+                    utilities: ["Water", "Electricity", "Sewage"],
+                    available: true
+                },
+                {
+                    id: "LND002",
+                    title: "Investment Land Plot",
+                    location: "Al Seeb",
+                    price: 95000,
+                    currency: "OMR",
+                    area: 800,
+                    features: ["Commercial Potential", "Main Road Access", "High Growth Area"],
+                    description: "Excellent investment opportunity in rapidly developing Al Seeb area",
+                    slug: "investment-land-plot-al-seeb",
+                    coordinates: { lat: 23.6707, lng: 58.1884 },
+                    buildingPermit: true,
+                    utilities: ["Water", "Electricity"],
+                    available: true
+                }
+            ]
+        };
+
+        // Configuration for your website
+        const WEBSITE_CONFIG = {
+            baseUrl: 'https://aqariq.com', // Your actual domain
+            propertyPath: '/property',      // Property detail page path
+            searchPath: '/search',          // Search results path
+            contactPath: '/contact',        // Contact page path
+            viewingPath: '/schedule-viewing' // Viewing booking path
+        };
+
+        // Function to generate AqariQ website links
+        function generateAqariqLink(property, action = 'view') {
+            const baseUrl = WEBSITE_CONFIG.baseUrl;
+            
+            switch (action) {
+                case 'view':
+                    return `${baseUrl}${WEBSITE_CONFIG.propertyPath}/${property.id}/${property.slug}`;
+                    
+                case 'contact':
+                    return `${baseUrl}${WEBSITE_CONFIG.contactPath}?property=${property.id}&ref=ai-assistant`;
+                    
+                case 'schedule':
+                    return `${baseUrl}${WEBSITE_CONFIG.viewingPath}?property=${property.id}&title=${encodeURIComponent(property.title)}`;
+                    
+                case 'search-similar':
+                    const params = new URLSearchParams({
+                        location: property.location,
+                        type: property.id.startsWith('VIL') ? 'villa' : property.id.startsWith('APT') ? 'apartment' : 'land',
+                        max_price: property.price,
+                        beds: property.beds || ''
+                    });
+                    return `${baseUrl}${WEBSITE_CONFIG.searchPath}?${params.toString()}`;
+                    
+                default:
+                    return `${baseUrl}${WEBSITE_CONFIG.propertyPath}/${property.id}/${property.slug}`;
+            }
+        }
+
+        // Function to get properties within budget with AqariQ links
+        function getPropertiesInBudget(maxBudget, propertyType = null) {
+            const allProperties = getAllProperties();
+            
+            return allProperties
+                .filter(prop => {
+                    const meetsPrice = prop.price <= maxBudget;
+                    const meetsType = !propertyType || prop.id.startsWith(propertyType.toUpperCase().substr(0,3));
+                    return meetsPrice && meetsType && prop.available;
+                })
+                .sort((a, b) => a.price - b.price) // Sort by price ascending
+                .map(prop => ({
+                    ...prop,
+                    link: generateAqariqLink(prop, 'view'),
+                    contactLink: generateAqariqLink(prop, 'contact'),
+                    scheduleLink: generateAqariqLink(prop, 'schedule'),
+                    similarLink: generateAqariqLink(prop, 'search-similar')
+                }));
+        }
+
+        // AI Integration Functions
+        async function callAI(message, context = '') {
+            const provider = aiConfig.provider;
+            
+            if (provider === 'local') {
+                return await mockAIResponse(message, context);
+            }
+            
+            try {
+                updateStatus('Processing...', false);
+                
+                const systemPrompt = createSystemPrompt();
+                const response = await makeAPICall(provider, message, systemPrompt, context);
+                
+                updateStatus('AI Online', true);
+                return response;
+                
+            } catch (error) {
+                console.error('AI API Error:', error);
+                updateStatus('AI Error', false);
+                return `I apologize, but I'm experiencing technical difficulties with the AI service. Error: ${error.message}. Let me try to help you with our local database instead.\n\n${await mockAIResponse(message, context)}`;
+            }
+        }
+
+        function createSystemPrompt() {
+            return `You are an expert real estate assistant for AqariQ, a premium property company in Oman. You have access to a comprehensive property database and deep knowledge of the Omani real estate market.
+
+PERSONALITY & TONE:
+- Professional yet friendly and approachable
+- Confident in your expertise but humble
+- Use emojis sparingly for key points
+- Focus on being helpful and solution-oriented
+
+YOUR CAPABILITIES:
+- Access to live property database with ${getTotalProperties()} properties
+- Real-time market insights and trends
+- Financing and legal guidance
+- Area expertise across all Omani regions
+- Investment analysis and ROI calculations
+
+PROPERTY DATABASE INCLUDES:
+- Villas: Luxury waterfront, family homes, investment properties
+- Apartments: Modern high-rises, affordable units, penthouses  
+- Land: Residential plots, commercial land, investment opportunities
+- All properties have verified documentation and clear titles
+
+KEY AREAS OF EXPERTISE:
+- Al Mouj (Premium waterfront community)
+- Qurum (Upscale residential, near amenities)
+- Al Khuwair (Business district, good rentals)
+- Al Hail (Affordable family areas)
+- Bousher (Mixed residential/commercial)
+
+ALWAYS INCLUDE:
+- Specific property recommendations with prices
+- Direct links to listings when mentioning properties
+- Realistic market insights
+- Next steps or call-to-action
+
+FORMAT RESPONSES:
+- Use line breaks for readability
+- Include property links as: 🔗 View Details: [URL]
+- Be concise but comprehensive
+- Always end with a helpful question or suggestion`;
+        }
+
+        async function makeAPICall(provider, message, systemPrompt, context) {
+            const messages = [
+                { role: "system", content: systemPrompt },
+                { role: "user", content: `Context: ${context}\n\nUser Question: ${message}` }
+            ];
+
+            let apiUrl, headers, body;
+
+            switch (provider) {
+                case 'openai':
+                    apiUrl = 'https://api.openai.com/v1/chat/completions';
+                    headers = {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${aiConfig.apiKey}`
+                    };
+                    body = {
+                        model: aiConfig.model,
+                        messages: messages,
+                        temperature: aiConfig.temperature,
+                        max_tokens: aiConfig.maxTokens
+                    };
+                    break;
+
+                case 'claude':
+                    apiUrl = 'https://api.anthropic.com/v1/messages';
+                    headers = {
+                        'Content-Type': 'application/json',
+                        'x-api-key': aiConfig.apiKey,
+                        'anthropic-version': '2023-06-01'
+                    };
+                    body = {
+                        model: aiConfig.model,
+                        max_tokens: aiConfig.maxTokens,
+                        messages: messages.filter(m => m.role !== 'system'),
+                        system: systemPrompt
+                    };
+                    break;
+
+                case 'gemini':
+                    apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${aiConfig.model}:generateContent?key=${aiConfig.apiKey}`;
+                    headers = { 'Content-Type': 'application/json' };
+                    body = {
+                        contents: [{
+                            parts: [{ text: `${systemPrompt}\n\n${context}\n\nUser: ${message}` }]
+                        }],
+                        generationConfig: {
+                            temperature: aiConfig.temperature,
+                            maxOutputTokens: aiConfig.maxTokens
+                        }
+                    };
+                    break;
+            }
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(body)
+            });
+
+            if (!response.ok) {
+                throw new Error(`API Error: ${response.status} - ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            return extractResponseText(provider, data);
+        }
+
+        function extractResponseText(provider, data) {
+            switch (provider) {
+                case 'openai':
+                    return data.choices[0].message.content;
+                case 'claude':
+                    return data.content[0].text;
+                case 'gemini':
+                    return data.candidates[0].content.parts[0].text;
+                default:
+                    return 'Unable to parse AI response';
+            }
+        }
+
+        // Enhanced Mock AI Response for demo/fallback
+        async function mockAIResponse(message, context) {
+            const messageLower = message.toLowerCase();
+            
+            // Simulate API delay
+            await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
+
+            // Create contextual response based on property data
+            const relevantProperties = findRelevantProperties(messageLower);
+            const marketInsights = getMarketInsights(messageLower);
+            
+            let response = '';
+
+            // Personalized greeting based on query
+            if (messageLower.includes('villa') && messageLower.includes('pool')) {
+                response += "🏊‍♂️ Excellent choice! Villas with private pools are highly sought after in Oman's climate. Here are my top recommendations:\n\n";
+                
+                relevantProperties.villas.forEach(villa => {
+                    if (villa.features.some(f => f.toLowerCase().includes('pool'))) {
+                        response += `🏠 **${villa.title}**\n`;
+                        response += `📍 ${villa.location} • ${villa.beds} beds • ${villa.area}m²\n`;
+                        response += `💰 ${villa.currency} ${villa.price.toLocaleString()}\n`;
+                        response += `✨ Features: ${villa.features.join(', ')}\n`;
+                        response += `🔗 View Details: ${villa.link}\n\n`;
+                    }
+                });
+                
+                response += "💡 **Market Insight**: Pool villas in Al Mouj and Qurum have appreciated 12% this year. Perfect timing for investment!\n\n";
+                response += "Would you like me to arrange viewings or discuss financing options?";
+                
+            } else if (messageLower.includes('investment') || messageLower.includes('roi')) {
+                response += "💼 Smart investor! I've analyzed the current market for the best ROI opportunities:\n\n";
+                
+                const investmentProperties = [
+                    { type: "Villa Complex", location: "Al Khuwair", roi: "8.2%", price: "OMR 385,000", link: "https://aqariq.com/investment/complex-001" },
+                    { type: "Commercial Plot", location: "Bousher", roi: "9.5%", price: "OMR 290,000", link: "https://aqariq.com/investment/commercial-001" },
+                    { type: "Apartment Building", location: "Qurum", roi: "7.8%", price: "OMR 450,000", link: "https://aqariq.com/investment/building-001" }
+                ];
+                
+                investmentProperties.forEach(prop => {
+                    response += `📈 **${prop.type}** - ${prop.location}\n`;
+                    response += `🎯 Expected ROI: ${prop.roi} annually\n`;
+                    response += `💰 Investment: ${prop.price}\n`;
+                    response += `🔗 Analysis: ${prop.link}\n\n`;
+                });
+                
+                response += "📊 **Market Analysis**: Rental demand up 15% this quarter. Prime time for property investment!\n\n";
+                response += "Would you like detailed financial projections for any of these opportunities?";
+                
+            } else if (messageLower.includes('budget') || messageLower.includes('under')) {
+                const budgetMatch = messageLower.match(/(?:budget|under) (?:omr )?(\d+)/);
+                const budget = budgetMatch ? parseInt(budgetMatch[1]) * 1000 : 300000;
+                
+                response += `💰 I understand your budget is OMR ${budget.toLocaleString()}. Let me be honest about the Muscat property market:\n\n`;
+                
+                if (budget < 200000) {
+                    response += `🏠 **Villa Reality Check**: Traditional villas in Muscat typically start from OMR 300,000+. However, here are some realistic alternatives within your budget:\n\n`;
+                    
+                    // Get actual properties within budget
+                    const budgetProperties = getPropertiesInBudget(budget);
+                    
+                    if (budgetProperties.length > 0) {
+                        response += `🏢 **Available Properties Within Budget**:\n\n`;
+                        budgetProperties.forEach(prop => {
+                            response += `🏠 **${prop.title}**\n`;
+                            response += `📍 ${prop.location} • ${prop.beds} bed • ${prop.area}m²\n`;
+                            response += `💰 ${prop.currency} ${prop.price.toLocaleString()}\n`;
+                            response += `✨ ${prop.features.join(', ')}\n`;
+                            response += `🔗 View Details: ${prop.link}\n`;
+                            response += `📞 Contact Agent: ${prop.contactLink}\n`;
+                            response += `📅 Schedule Viewing: ${prop.scheduleLink}\n\n`;
+                        });
+                    } else {
+                        response += `🏢 **Closest Matches**:\n\n`;
+                        const closestMatch1 = getPropertiesInBudget(120000)[0]; // Get closest property
+                        if (closestMatch1) {
+                            response += `• **${closestMatch1.title}**\n`;
+                            response += `📍 ${closestMatch1.location} • ${closestMatch1.currency} ${closestMatch1.price.toLocaleString()}\n`;
+                            response += `🔗 ${closestMatch1.link}\n\n`;
+                        }
+                    }
+                    
+                    response += `🏗️ **Build Your Own Villa Option**:\n`;
+                    const landOptions = getPropertiesInBudget(budget, 'land');
+                    if (landOptions.length > 0) {
+                        const land = landOptions[0];
+                        response += `• ${land.title} - ${land.location}: ${land.currency} ${land.price.toLocaleString()}\n`;
+                        response += `• ${land.area}m² ready for construction\n`;
+                        response += `🔗 ${land.link}\n\n`;
+                    }
+                    
+                    response += `💡 **Smart Alternative**: Buy land now (OMR 85k) + build in phases. Total villa cost: OMR 200-250k over 2-3 years.\n\n`;
+                    
+                    response += `📞 Would you like to explore financing options to increase your budget or see more details about any of these properties?`;
+                } else {
+                    const affordableProps = getAllProperties().filter(p => p.price <= budget);
+                    response += `Here are properties within OMR ${budget.toLocaleString()}:\n\n`;
+                    
+                    affordableProps.slice(0, 3).forEach(prop => {
+                        response += `🏠 **${prop.title}**\n`;
+                        response += `📍 ${prop.location} • OMR ${prop.price.toLocaleString()}\n`;
+                        response += `🔗 View: ${prop.link}\n\n`;
+                    });
+                    
+                    response += "💡 **Financing Tip**: With 20% down payment, monthly installments start from OMR 800!\n\n";
+                    response += "Shall I connect you with our mortgage specialist for pre-approval?";
+                }
+                
+            } else {
+                // General intelligent response
+                response += generateIntelligentResponse(messageLower, relevantProperties, marketInsights);
+            }
+
+            return response;
+        }
+
+        function generateIntelligentResponse(query, properties, insights) {
+            const responses = [
+                `🏠 I understand you're looking for property options. Based on current market trends, here are my recommendations:\n\n${formatPropertySample(properties)}\n\n💡 ${insights}\n\nWhat specific features are most important to you?`,
+                
+                `🌟 Excellent timing! The Omani real estate market is showing strong growth. Here's what I found:\n\n${formatPropertySample(properties)}\n\n📈 ${insights}\n\nWould you like me to schedule viewings for this weekend?`,
+                
+                `🔍 I've analyzed our database and found some perfect matches:\n\n${formatPropertySample(properties)}\n\n🎯 ${insights}\n\nShall we discuss financing options or arrange property tours?`
+            ];
+            
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function formatPropertySample(properties) {
+            const sample = [...properties.villas, ...properties.apartments, ...properties.lands].slice(0, 2);
+            return sample.map(p => 
+                `🏠 **${p.title}** - ${p.location}\n💰 OMR ${p.price.toLocaleString()}\n🔗 ${p.link}`
+            ).join('\n\n');
+        }
+
+        function findRelevantProperties(query) {
+            const all = getAllProperties();
+            return {
+                villas: all.filter(p => 
+                    p.title.toLowerCase().includes('villa') && 
+                    (query.includes(p.location.toLowerCase()) || 
+                     p.features.some(f => query.includes(f.toLowerCase())))
+                ),
+                apartments: all.filter(p => 
+                    p.title.toLowerCase().includes('apartment') && 
+                    (query.includes(p.location.toLowerCase()) || 
+                     p.features.some(f => query.includes(f.toLowerCase())))
+                ),
+                lands: all.filter(p => 
+                    p.title.toLowerCase().includes('plot') || p.title.toLowerCase().includes('land')
+                )
+            };
+        }
+
+        function getMarketInsights(query) {
+            const insights = [
+                "Property values in premium areas have increased 8-12% this year",
+                "Rental demand is particularly strong in Al Mouj and Qurum areas",
+                "New infrastructure projects are boosting property values in Al Hail",
+                "Commercial properties near Muscat International Airport show excellent ROI",
+                "Waterfront properties continue to outperform the general market"
+            ];
+            return insights[Math.floor(Math.random() * insights.length)];
+        }
+
+        function getAllProperties() {
+            return [...propertyDatabase.villas, ...propertyDatabase.apartments, ...propertyDatabase.lands];
+        }
+
+        function getTotalProperties() {
+            return getAllProperties().length;
+        }
+
+        // UI Functions
+        function toggleAIChat() {
+            const chatInterface = document.getElementById('aiChatInterface');
+            chatInterface.classList.toggle('active');
+        }
+
+        function toggleConfig() {
+            const config = document.getElementById('aiConfig');
+            config.classList.toggle('show');
+        }
+
+        function updateStatus(text, isOnline) {
+            const statusText = document.getElementById('statusText');
+            const statusDot = document.getElementById('statusDot');
+            
+            statusText.textContent = text;
+            statusDot.className = isOnline ? 'status-dot' : 'status-dot offline';
+        }
+
+        function handleEnterKey(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            const sendButton = document.getElementById('sendButton');
+            
+            if (message === '') return;
+
+            // Disable send button during processing
+            sendButton.disabled = true;
+            
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            try {
+                // Create context from recent messages
+                const context = buildContext();
+                
+                // Call AI service
+                const response = await callAI(message, context);
+                
+                // Hide typing indicator
+                hideTypingIndicator();
+                
+                // Add AI response
+                addMessage(response, 'bot');
+                
+            } catch (error) {
+                hideTypingIndicator();
+                addMessage(`I apologize, but I encountered an error: ${error.message}. Let me try to help you with our property database instead.`, 'bot', true);
+            } finally {
+                sendButton.disabled = false;
+            }
+        }
+
+        function buildContext() {
+            const messages = document.querySelectorAll('.ai-message');
+            const recentMessages = Array.from(messages)
+                .slice(-6) // Last 6 messages
+                .map(msg => {
+                    const role = msg.classList.contains('user') ? 'User' : 'Assistant';
+                    const contentEl = msg.querySelector('.ai-message-content');
+                    const content = contentEl ? contentEl.textContent : '';
+                    return `${role}: ${content}`;
+                })
+                .filter(msg => msg.trim() !== 'User: ' && msg.trim() !== 'Assistant: ') // Filter empty messages
+                .join('\n\n');
+            
+            return `Recent conversation:\n${recentMessages}\n\nProperty Database Summary: ${getTotalProperties()} properties available including luxury villas, modern apartments, and investment lands across Muscat.`;
+        }
+
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'ai-message bot';
+            typingDiv.id = 'typing-indicator';
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'ai-message-avatar';
+            avatar.textContent = '🤖';
+            
+            const indicator = document.createElement('div');
+            indicator.className = 'typing-indicator show';
+            indicator.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+            
+            typingDiv.appendChild(avatar);
+            typingDiv.appendChild(indicator);
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function addMessage(message, sender, isError = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `ai-message ${sender}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'ai-message-avatar';
+            avatar.textContent = sender === 'bot' ? '🤖' : '👤';
+            
+            const content = document.createElement('div');
+            content.className = `ai-message-content ${isError ? 'error-message' : ''}`;
+            
+            // Convert URLs to clickable links and format markdown-style text
+            const formattedMessage = message
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold text
+                .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" class="property-link">View Details →</a>') // Links
+                .replace(/🔗 View Details: (https?:\/\/[^\s]+)/g, '🔗 <a href="$1" target="_blank" class="property-link">View Details →</a>') // Specific link format
+                .replace(/🔗 (.*?): (https?:\/\/[^\s]+)/g, '🔗 <a href="$2" target="_blank" class="property-link">$1 →</a>'); // Named links
+            
+            content.innerHTML = formattedMessage;
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(content);
+            messagesContainer.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Configuration Management
+        function initializeConfig() {
+            const providerSelect = document.getElementById('aiProvider');
+            const apiKeyInput = document.getElementById('apiKey');
+            const modelSelect = document.getElementById('aiModel');
+            const temperatureSlider = document.getElementById('temperature');
+            const tempValue = document.getElementById('tempValue');
+
+            // Load saved config
+            const savedConfig = localStorage.getItem('aqariq-ai-config');
+            if (savedConfig) {
+                const config = JSON.parse(savedConfig);
+                Object.assign(aiConfig, config);
+                
+                providerSelect.value = aiConfig.provider;
+                apiKeyInput.value = aiConfig.apiKey;
+                modelSelect.value = aiConfig.model;
+                temperatureSlider.value = aiConfig.temperature;
+                tempValue.textContent = aiConfig.temperature;
+            }
+
+            // Event listeners for config changes
+            providerSelect.addEventListener('change', (e) => {
+                aiConfig.provider = e.target.value;
+                updateModelOptions();
+                saveConfig();
+            });
+
+            apiKeyInput.addEventListener('change', (e) => {
+                aiConfig.apiKey = e.target.value;
+                saveConfig();
+            });
+
+            modelSelect.addEventListener('change', (e) => {
+                aiConfig.model = e.target.value;
+                saveConfig();
+            });
+
+            temperatureSlider.addEventListener('input', (e) => {
+                aiConfig.temperature = parseFloat(e.target.value);
+                tempValue.textContent = aiConfig.temperature;
+                saveConfig();
+            });
+
+            updateModelOptions();
+        }
+
+        function updateModelOptions() {
+            const modelSelect = document.getElementById('aiModel');
+            modelSelect.innerHTML = '';
+
+            const modelOptions = {
+                'openai': ['gpt-4', 'gpt-4-turbo', 'gpt-3.5-turbo'],
+                'claude': ['claude-3-sonnet-20240229', 'claude-3-haiku-20240307', 'claude-3-opus-20240229'],
+                'gemini': ['gemini-pro', 'gemini-pro-vision'],
+                'local': ['mock-ai-v1']
+            };
+
+            const options = modelOptions[aiConfig.provider] || ['default'];
+            options.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model;
+                option.textContent = model;
+                if (model === aiConfig.model) option.selected = true;
+                modelSelect.appendChild(option);
+            });
+        }
+
+        function saveConfig() {
+            localStorage.setItem('aqariq-ai-config', JSON.stringify(aiConfig));
+            
+            // Update status based on configuration
+            if (aiConfig.provider === 'local') {
+                updateStatus('Mock AI Ready', true);
+            } else if (aiConfig.apiKey) {
+                updateStatus('AI Configured', true);
+            } else {
+                updateStatus('API Key Required', false);
+            }
+        }
+
+        // Advanced AI Features
+        function analyzeUserIntent(message) {
+            const intents = {
+                search: /looking for|find|show me|search|need/i,
+                compare: /compare|vs|versus|difference|better/i,
+                budget: /budget|afford|price|cost|under|within/i,
+                investment: /investment|roi|return|profit|rental/i,
+                location: /area|location|where|near|close to/i,
+                financing: /finance|loan|mortgage|bank|payment/i,
+                schedule: /viewing|visit|see|appointment|schedule/i
+            };
+
+            const detectedIntents = [];
+            for (const [intent, pattern] of Object.entries(intents)) {
+                if (pattern.test(message)) {
+                    detectedIntents.push(intent);
+                }
+            }
+
+            return detectedIntents;
+        }
+
+        function extractEntities(message) {
+            const entities = {
+                propertyTypes: [],
+                locations: [],
+                priceRange: null,
+                bedrooms: null,
+                features: []
+            };
+
+            // Property types
+            const propertyPatterns = {
+                villa: /villa|house|home/i,
+                apartment: /apartment|flat|condo/i,
+                land: /land|plot|site/i
+            };
+
+            for (const [type, pattern] of Object.entries(propertyPatterns)) {
+                if (pattern.test(message)) {
+                    entities.propertyTypes.push(type);
+                }
+            }
+
+            // Locations
+            const locations = ['al mouj', 'qurum', 'al khuwair', 'al hail', 'bousher', 'muscat', 'seeb'];
+            entities.locations = locations.filter(loc => 
+                message.toLowerCase().includes(loc)
+            );
+
+            // Price range
+            const priceMatch = message.match(/under (?:omr )?(\d+)/i);
+            if (priceMatch) {
+                entities.priceRange = {
+                    max: parseInt(priceMatch[1]) * 1000
+                };
+            }
+
+            // Bedrooms
+            const bedroomMatch = message.match(/(\d+)\s*(?:bed|bedroom)/i);
+            if (bedroomMatch) {
+                entities.bedrooms = parseInt(bedroomMatch[1]);
+            }
+
+            // Features
+            const featurePatterns = ['pool', 'garden', 'gym', 'parking', 'balcony', 'sea view', 'furnished'];
+            entities.features = featurePatterns.filter(feature => 
+                message.toLowerCase().includes(feature)
+            );
+
+            return entities;
+        }
+
+        // Error Handling and Fallbacks
+        function handleAIError(error, userMessage) {
+            console.error('AI Service Error:', error);
+            
+            const fallbackResponse = `I apologize for the technical difficulty. Let me help you using our property database:\n\n${generateFallbackResponse(userMessage)}`;
+            
+            return fallbackResponse;
+        }
+
+        function generateFallbackResponse(message) {
+            const entities = extractEntities(message);
+            const intents = analyzeUserIntent(message);
+            
+            let response = '';
+            
+            if (intents.includes('search')) {
+                response += 'Here are some properties that might interest you:\n\n';
+                const sample = getAllProperties().slice(0, 3);
+                sample.forEach(prop => {
+                    response += `🏠 ${prop.title} - ${prop.location}\n💰 OMR ${prop.price.toLocaleString()}\n🔗 ${prop.link}\n\n`;
+                });
+            } else if (intents.includes('investment')) {
+                response += 'Investment opportunities in Oman are excellent right now. Would you like me to show you high-ROI properties?';
+            } else {
+                response += 'I\'d be happy to help you find the perfect property. What are you looking for specifically?';
+            }
+            
+            return response;
+        }
+
+        // Performance Monitoring
+        function trackAIPerformance(startTime, provider, success) {
+            const endTime = Date.now();
+            const duration = endTime - startTime;
+            
+            const performanceData = {
+                timestamp: new Date().toISOString(),
+                provider: provider,
+                duration: duration,
+                success: success
+            };
+            
+            // Store performance metrics (in a real app, send to analytics)
+            const metrics = JSON.parse(localStorage.getItem('ai-performance') || '[]');
+            metrics.push(performanceData);
+            
+            // Keep only last 100 entries
+            if (metrics.length > 100) {
+                metrics.splice(0, metrics.length - 100);
+            }
+            
+            localStorage.setItem('ai-performance', JSON.stringify(metrics));
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeConfig();
+            
+            // Add welcome message for demo
+            setTimeout(() => {
+                addMessage("🚀 AI system initialized! I can now provide intelligent property recommendations, market analysis, and personalized assistance. Try asking me something like:\n\n• \"Show me villas with pools under OMR 500k\"\n• \"What's the ROI on investment properties?\"\n• \"Compare apartments in Al Mouj vs Qurum\"\n\nWhat would you like to know?", 'bot');
+            }, 1000);
+        });
+
+        // Export functions for external use (if needed)
+        window.AqariqAI = {
+            sendMessage,
+            callAI,
+            propertyDatabase,
+            aiConfig
+        };
+    </script>
 
  <!-- Footer -->
 <footer> 
@@ -2337,7 +3084,6 @@ a.btn {
       <img src="images/logo.png" alt="AqariQ Logo">
     </div>
     <div class="footer-logo-text">
-      <div class极速飞艇
       <div class="footer-logo-main">AqariQ</div>
       <div class="footer-logo-sub">Where Ownership Starts</div>
     </div>
@@ -2387,275 +3133,11 @@ a.btn {
     <div class="footer-bottom-section">
       <div class="footer-bottom-left">Copyright © Dotcreativemarket</div>
       <div class="footer-bottom-center">Terms of Use</div>
-      <div class="footer-bottom-right">Privacy Policy</极速飞艇
       <div class="footer-bottom-right">Privacy Policy</div>
     </div>
   </div>
 </footer>
 
-<script>
-// User authentication state
-let isUserSignedIn = false;
 
-// User dropdown functionality
-function toggleUserDropdown() {
-    const dropdown = document.getElementById('userDropdown');
-    dropdown.classList.toggle('show');
-}
 
-// Close dropdown when clicking outside
-document.addEventListener('click', function(event) {
-    const userAccount = document.querySelector('.user-account');
-    const dropdown = document.getElementById('userDropdown');
-    
-    if (!userAccount.contains(event.target)) {
-        dropdown.classList.remove('show');
-    }
-});
-
-// Handle sign in/out functionality
-function updateUserState(signedIn) {
-    isUserSignedIn = signedIn;
-    const signinBtn = document.getElementById('signinBtn');
-    const profileBtn = document.getElementById('profileBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const divider = document.getElementById('divider');
-    
-    if (signedIn) {
-        signinBtn.style.display = 'none';
-        profileBtn.style.display = 'block';
-        logoutBtn.style.display = 'block';
-        divider.style.display = 'block';
-    } else {
-        signinBtn.style.display = 'block';
-        profileBtn.style.display = 'none';
-        logoutBtn.style.display = 'none';
-        divider.style.display极速飞艇
-        divider.style.display = 'none';
-    }
-}
-
-// Handle dropdown clicks
-document.getElementById('signinBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    // Redirect to sign in page
-    window.location.href = 'Signup1/index.html';
-});
-
-document.getElementById('profileBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    // Redirect to profile page
-    window.location.href = 'profile.html';
-});
-
-document.getElementById('logoutBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    if (confirm('Are you sure you want to log out?')) {
-        updateUserState(false);
-        alert('You have been logged out successfully.');
-    }
-});
-
-// Initialize user state (default: not signed in)
-updateUserState(false);
-
-// Form submission handler
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Get selected interests
-    const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
-        .map(checkbox => checkbox.value);
-    
-    data.interests = interests;
-    
-    // Simple success message
-    alert('Thank you for your enquiry! We will get back to you soon.');
-    
-    // In a real application, you would send this data to your server
-    console.log('Form data:', data);
-    
-    // Reset form
-    this.reset();
-});
-
-// AI Assistant JavaScript
-const aiConfig = {
-    provider: 'local',
-    apiKey: '',
-    model: 'gpt-4',
-    temperature: 0.7,
-    maxTokens: 1000
-};
-
-function toggleAIChat() {
-    const chatInterface = document.getElementById('aiChatInterface');
-    chatInterface.classList.toggle('active');
-}
-
-function updateStatus(text, isOnline) {
-    const statusText = document.getElementById('statusText');
-    const statusDot = document.getElementById('statusDot');
-    
-    statusText.textContent = text;
-    statusDot.className = isOnline ? 'status-dot' : 'status-dot offline';
-}
-
-function handleEnterKey(event) {
-    if (event.key === 'Enter' && !event.shiftKey) {
-        event.preventDefault();
-        sendMessage();
-    }
-}
-
-async function sendMessage() {
-    const input = document.getElementById('chatInput');
-    const message = input.value.trim();
-    const sendButton = document.getElementById('sendButton');
-    
-    if (message === '') return;
-
-    sendButton.disabled = true;
-    addMessage(message, 'user');
-    input.value = '';
-
-    showTypingIndicator();
-
-    try {
-        const response = await mockAIResponse(message);
-        hideTypingIndicator();
-        addMessage(response, 'bot');
-    } catch (error) {
-        hideTypingIndicator();
-        addMessage('I apologize, but I encountered an error. Please try again.', 'bot', true);
-    } finally {
-        sendButton.disabled = false;
-    }
-}
-
-async function mockAIResponse(message) {
-    const messageLower = message.toLowerCase();
-    
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
-
-    if (messageLower.includes('villa') && messageLower.includes('pool')) {
-        return `🏊‍♂️ Excellent choice! Villas with private pools are highly sought after in Oman's climate. Here are my top recommendations:
-
-🏠 **Luxury Seaview Villa** - Al Mouj
-📍 4 beds • 450m² • Private Pool, Sea View
-💰 OMR 479,850
-✨ Features: Private Pool, Sea View, Marina Access, Garden
-
-🏠 **Modern Family Villa** - Qurum  
-📍 5 beds • 380m² • Garden, Pool, Near Schools
-💰 OMR 450,125
-✨ Features: Garden, Pool, Near Schools, Gym Room
-
-💡 **Market Insight**: Pool villas in Al Mouj and Qurum have appreciated 12% this year. Perfect timing for investment!
-
-Would you like me to arrange viewings or discuss financing options?`;
-    } else if (messageLower.includes('budget') || messageLower.includes('price')) {
-        return `💰 I understand budget is important. Let me help you find the best options:
-
-**Our Current Range:**
-🏠 Villas: OMR 450,000 - 480,000
-🏢 Apartments: OMR 165,000+  
-🏗️ Land Plots: OMR 85,000+
-
-💡 **Smart Tip**: Consider buying land (OMR 85,000) and building in phases. Total cost: OMR 200-250k over 2-3 years.
-
-What's your comfortable budget range? I can show you the best matches!`;
-    } else if (messageLower.includes('investment') || messageLower.includes('roi')) {
-        return `💼 Smart investor! Here are the best ROI opportunities:
-
-📈 **Top Investment Options:**
-• Rental Villas in Qurum: 8-9% annual ROI
-• Commercial plots near airport: 9-12% ROI
-• Apartment buildings: 7-8% ROI
-
-📊 **Market Analysis**: 
-• Rental demand up 15% this quarter
-• Property values increased 8-12% this year
-• New infrastructure boosting Al Hail values
-
-Would you like detailed financial projections for any properties?`;
-    } else {
-        return `🌟 Hello! I'm here to help you find the perfect property in Oman. I have access to verified properties including luxury villas, modern apartments, and prime land plots.
-
-**What I can help with:**
-• Property recommendations based on your needs
-• Market insights and pricing
-• Investment analysis and ROI calculations
-• Financing options and legal guidance
-
-What specific type of property are you looking for? Any particular area or budget in mind?`;
-    }
-}
-
-function showTypingIndicator() {
-    const messagesContainer = document.getElementById('chatMessages');
-    const typingDiv = document.createElement('div');
-    typingDiv.className = 'ai-message bot';
-    typingDiv.id = 'typing-indicator';
-    
-    typingDiv.innerHTML = `
-        <div class="ai-message-avatar">🤖</div>
-        <div class="ai-message-content" style="opacity: 0.7;">
-            <span>Typing...</span>
-        </div>
-    `;
-    
-    messagesContainer.appendChild(typingDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-}
-
-function hideTypingIndicator() {
-    const typingIndicator = document.getElementById('typing-indicator');
-    if (typingIndicator) {
-        typingIndicator.remove();
-    }
-}
-
-function addMessage(message, sender, isError = false) {
-    const messagesContainer = document.getElementById('chatMessages');
-    const messageDiv = document.createElement('div');
-    message极速飞艇
-    messageDiv.className = `ai-message ${sender}`;
-    
-    const avatar = document.createElement('div');
-    avatar.className = 'ai-message-avatar';
-    avatar.textContent = sender === 'bot' ? '🤖' : '👤';
-    
-    const content = document.createElement('div');
-    content.className = `ai-message-content ${isError ? 'error-message' : ''}`;
-    
-    // Convert markdown-style formatting
-    const formattedMessage = message
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\n/g, '<br>');
-    
-    content.innerHTML = formattedMessage;
-    
-    messageDiv.appendChild(avatar);
-    messageDiv.appendChild(content);
-    messagesContainer.appendChild(messageDiv);
-    
-    // Scroll to bottom
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-}
-
-// Initialize
-document.addEventListener('DOMContentLoaded', function() {
-    // Add welcome message
-    setTimeout(() => {
-        addMessage("🚀 Welcome to AqariQ! I'm your AI property assistant. I can help you find villas, apartments, and land plots in Oman. What are you looking for today?", 'bot');
-    }, 1000);
-});
-</script>
-</body>
-</html>
+ <script src="scrolling.js"></script>
