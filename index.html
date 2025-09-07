@@ -2196,7 +2196,15 @@
             <div class="hero-image">
                 <div class="image-carousel">
                     <div class="carousel-track">
-                        <!-- Slides will be added dynamically via JavaScript -->
+                       <div class="carousel-slide">
+        <img src="images/Picture 1.png" alt="Luxury Property 1">
+    </div>
+    <div class="carousel-slide">
+        <img src="images/Picture 10.png" alt="Luxury Property 2">
+    </div>
+    <div class="carousel-slide">
+        <img src="images/Picture 13.png" alt="Luxury Property 3">
+    </div>
                     </div>
                     <button class="carousel-prev" aria-label="Previous slide">‹</button>
                     <button class="carousel-next" aria-label="Next slide">›</button>
@@ -2794,7 +2802,28 @@
         function initCarousel() {
             const carouselTrack = document.querySelector('.carousel-track');
             if (!carouselTrack) return;
-            
+            // Your image paths
+    const imagePaths = [
+        'images/Pictuer 1.png',
+        'images/Pictuer 10.png',
+        'images/Pictuer 13.png',
+    ];
+    
+    // Clear any existing content
+    carouselTrack.innerHTML = '';
+    
+    // Add slides to carousel
+    imagePaths.forEach((path, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        
+        const img = document.createElement('img');
+        img.src = path;
+        img.alt = `Luxury Property ${index + 1}`;
+        
+        slide.appendChild(img);
+        carouselTrack.appendChild(slide);
+    });
             // Add slides to carousel
             for (let i = 1; i <= 3; i++) {
                 const slide = document.createElement('div');
